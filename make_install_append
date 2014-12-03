@@ -1,0 +1,4 @@
+mkdir -p %{buildroot}%{_datadir}/defaults/ssh/
+mv %{buildroot}%{_sysconfdir}/ssh/moduli %{buildroot}%{_datadir}/defaults/ssh/
+mkdir -p %{buildroot}/usr/lib/systemd/system/sockets.target.wants
+ln -s ../sshd.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/sshd.socket

@@ -1,0 +1,27 @@
+Index: openssh-6.7p1/dh.c
+===================================================================
+--- openssh-6.7p1.orig/dh.c	2013-11-21 03:12:24.000000000 +0000
++++ openssh-6.7p1/dh.c	2015-03-03 18:01:03.763258783 +0000
+@@ -151,7 +151,8 @@
+ 	struct dhgroup dhg;
+ 
+ 	if ((f = fopen(_PATH_DH_MODULI, "r")) == NULL &&
+-	    (f = fopen(_PATH_DH_PRIMES, "r")) == NULL) {
++	    (f = fopen(_PATH_DH_PRIMES, "r")) == NULL &&
++	    (f = fopen(_PATH_DH_MODULI_STATELESS, "r")) == NULL) {
+ 		logit("WARNING: %s does not exist, using fixed modulus",
+ 		    _PATH_DH_MODULI);
+ 		return (dh_new_group14());
+Index: openssh-6.7p1/pathnames.h
+===================================================================
+--- openssh-6.7p1.orig/pathnames.h	2013-12-07 00:24:02.000000000 +0000
++++ openssh-6.7p1/pathnames.h	2015-03-03 18:00:00.079257287 +0000
+@@ -44,6 +44,8 @@
+ #define _PATH_DH_MODULI			SSHDIR "/moduli"
+ /* Backwards compatibility */
+ #define _PATH_DH_PRIMES			SSHDIR "/primes"
++/* Stateless moduli fallback */
++#define _PATH_DH_MODULI_STATELESS      	"/usr/share/defaults/ssh/moduli"
+ 
+ #ifndef _PATH_SSH_PROGRAM
+ #define _PATH_SSH_PROGRAM		"/usr/bin/ssh"

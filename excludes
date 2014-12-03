@@ -1,0 +1,8 @@
+#
+# This file contains the output files that need %exclude.
+# Full path names, one per line.
+#
+
+/etc/systemd/system/multi-user.target.wants/sshd.service
+/etc/ssh/ssh_config
+/etc/ssh/sshd_config

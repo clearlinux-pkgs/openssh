@@ -1,0 +1,7 @@
+/usr/bin/sshd
+/usr/libexec/sftp-server
+/usr/lib/systemd/system/sshd-keygen.service
+/usr/lib/systemd/system/sshd.service
+/usr/lib/systemd/system/sshd.socket
+/usr/lib/systemd/system/sshd@.service
+/usr/lib/systemd/system/sockets.target.wants/sshd.socket

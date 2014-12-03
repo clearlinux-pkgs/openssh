@@ -1,0 +1,48 @@
+--- openssh-6.7p1/cipher.c~	2014-07-20 12:24:59.000000000 -0400
++++ openssh-6.7p1/cipher.c	2015-03-09 17:20:11.057520584 -0400
+@@ -79,20 +79,14 @@
+ 
+ static const struct sshcipher ciphers[] = {
+ #ifdef WITH_SSH1
+-	{ "des",	SSH_CIPHER_DES, 8, 8, 0, 0, 0, 1, EVP_des_cbc },
+-	{ "3des",	SSH_CIPHER_3DES, 8, 16, 0, 0, 0, 1, evp_ssh1_3des },
+ 	{ "blowfish",	SSH_CIPHER_BLOWFISH, 8, 32, 0, 0, 0, 1, evp_ssh1_bf },
+ #endif /* WITH_SSH1 */
+ #ifdef WITH_OPENSSL
+ 	{ "none",	SSH_CIPHER_NONE, 8, 0, 0, 0, 0, 0, EVP_enc_null },
+-	{ "3des-cbc",	SSH_CIPHER_SSH2, 8, 24, 0, 0, 0, 1, EVP_des_ede3_cbc },
+ 	{ "blowfish-cbc",
+ 			SSH_CIPHER_SSH2, 8, 16, 0, 0, 0, 1, EVP_bf_cbc },
+ 	{ "cast128-cbc",
+ 			SSH_CIPHER_SSH2, 8, 16, 0, 0, 0, 1, EVP_cast5_cbc },
+-	{ "arcfour",	SSH_CIPHER_SSH2, 8, 16, 0, 0, 0, 0, EVP_rc4 },
+-	{ "arcfour128",	SSH_CIPHER_SSH2, 8, 16, 0, 0, 1536, 0, EVP_rc4 },
+-	{ "arcfour256",	SSH_CIPHER_SSH2, 8, 32, 0, 0, 1536, 0, EVP_rc4 },
+ 	{ "aes128-cbc",	SSH_CIPHER_SSH2, 16, 16, 0, 0, 0, 1, EVP_aes_128_cbc },
+ 	{ "aes192-cbc",	SSH_CIPHER_SSH2, 16, 24, 0, 0, 0, 1, EVP_aes_192_cbc },
+ 	{ "aes256-cbc",	SSH_CIPHER_SSH2, 16, 32, 0, 0, 0, 1, EVP_aes_256_cbc },
+--- openssh-6.7p1/cipher.c~	2015-03-09 17:20:11.000000000 -0400
++++ openssh-6.7p1/cipher.c	2015-03-09 17:24:53.873984891 -0400
+@@ -616,12 +616,6 @@
+ 	const struct sshcipher *c = cc->cipher;
+ 	int plen = 0;
+ 
+-	if (c->evptype == EVP_rc4) {
+-		plen = EVP_X_STATE_LEN(cc->evp);
+-		if (dat == NULL)
+-			return (plen);
+-		memcpy(dat, EVP_X_STATE(cc->evp), plen);
+-	}
+ 	return (plen);
+ #else
+ 	return 0;
+@@ -635,9 +629,5 @@
+ 	const struct sshcipher *c = cc->cipher;
+ 	int plen;
+ 
+-	if (c->evptype == EVP_rc4) {
+-		plen = EVP_X_STATE_LEN(cc->evp);
+-		memcpy(EVP_X_STATE(cc->evp), dat, plen);
+-	}
+ #endif
+ }
