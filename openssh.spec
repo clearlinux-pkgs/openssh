@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.1p1
-Release  : 28
+Release  : 29
 URL      : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source0  : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -111,6 +111,11 @@ mkdir -p %{buildroot}%{_datadir}/defaults/ssh/
 mv %{buildroot}%{_sysconfdir}/ssh/moduli %{buildroot}%{_datadir}/defaults/ssh/
 mkdir -p %{buildroot}/usr/lib/systemd/system/sockets.target.wants
 ln -s ../sshd.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/sshd.socket
+mkdir -p %{buildroot}/usr/bin
+cp contrib/ssh-copy-id %{buildroot}/usr/bin/
+chmod +x %{buildroot}/usr/bin/ssh-copy-id
+mkdir -p %{buildroot}/usr/share/man/man1/
+cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
 ## make_install_append end
 
 %files
@@ -126,6 +131,7 @@ ln -s ../sshd.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/ss
 /usr/bin/ssh
 /usr/bin/ssh-add
 /usr/bin/ssh-agent
+/usr/bin/ssh-copy-id
 /usr/bin/ssh-keygen
 /usr/bin/ssh-keyscan
 /usr/libexec/ssh-keysign

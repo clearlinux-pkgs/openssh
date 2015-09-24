@@ -2,3 +2,8 @@ mkdir -p %{buildroot}%{_datadir}/defaults/ssh/
 mv %{buildroot}%{_sysconfdir}/ssh/moduli %{buildroot}%{_datadir}/defaults/ssh/
 mkdir -p %{buildroot}/usr/lib/systemd/system/sockets.target.wants
 ln -s ../sshd.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/sshd.socket
+mkdir -p %{buildroot}/usr/bin
+cp contrib/ssh-copy-id %{buildroot}/usr/bin/
+chmod +x %{buildroot}/usr/bin/ssh-copy-id
+mkdir -p %{buildroot}/usr/share/man/man1/
+cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
