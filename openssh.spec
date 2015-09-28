@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.1p1
-Release  : 29
+Release  : 30
 URL      : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source0  : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source1  : openssh.tmpfiles
