@@ -1,0 +1,12 @@
+diff -ru openssh-7.1p1.old/servconf.c openssh-7.1p1/servconf.c
+--- openssh-7.1p1.old/servconf.c	2015-11-18 17:14:06.763676861 -0800
++++ openssh-7.1p1/servconf.c	2015-11-19 15:12:14.637976150 -0800
+@@ -185,7 +185,7 @@
+ 
+ 	/* Portable-specific options */
+ 	if (options->use_pam == -1)
+-		options->use_pam = 0;
++		options->use_pam = 1;
+ 
+ 	/* Standard Options */
+ 	if (options->protocol == SSH_PROTO_UNKNOWN)

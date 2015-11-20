@@ -2,3 +2,4 @@ stateless.patch
 moduli-lookup.patch
 ciphers.patch
 default-ciphers-configuration.patch
+default-enable-pam.patch
