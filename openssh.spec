@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.1p1
-Release  : 30
+Release  : 31
 URL      : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source0  : http://ftp3.usa.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -28,20 +28,22 @@ Patch1: stateless.patch
 Patch2: moduli-lookup.patch
 Patch3: ciphers.patch
 Patch4: default-ciphers-configuration.patch
+Patch5: default-enable-pam.patch
 
 %description
-Ssh (Secure Shell) is a program for logging into a remote machine and for
-executing commands in a remote machine.  It is intended to replace
-rlogin and rsh, and provide secure encrypted communications between
-two untrusted hosts over an insecure network.  X11 connections and
+SSH (Secure SHell) is a program for logging into and executing
+commands on a remote machine. SSH is intended to replace rlogin and
+rsh, and to provide secure encrypted communications between two
+untrusted hosts over an insecure network. X11 connections and
 arbitrary TCP/IP ports can also be forwarded over the secure channel.
 
-OpenSSH is OpenBSD's rework of the last free version of SSH, bringing it
-up to date in terms of security and features, as well as removing all
-patented algorithms to seperate libraries (OpenSSL).
+OpenSSH is OpenBSD's version of the last free version of SSH, bringing
+it up to date in terms of security and features, as well as removing
+all patented algorithms to separate libraries.
 
-This package includes all files necessary for both the OpenSSH
-client and server.
+This package includes the core files necessary for both the OpenSSH
+client and server. To make this package useful, you should also
+install openssh-clients, openssh-server, or both.
 
 %package bin
 Summary: bin components for the openssh package.
@@ -91,6 +93,7 @@ extras components for the openssh package.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip
