@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.1p2
-Release  : 32
+Release  : 33
 URL      : http://mirror.aarnet.edu.au/pub/OpenBSD/OpenSSH/portable/openssh-7.1p2.tar.gz
 Source0  : http://mirror.aarnet.edu.au/pub/OpenBSD/OpenSSH/portable/openssh-7.1p2.tar.gz
 Source1  : openssh.tmpfiles
@@ -95,7 +95,7 @@ extras components for the openssh package.
 %patch5 -p1
 
 %build
-%configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip
+%configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make V=1  %{?_smp_mflags}
 
 %install
