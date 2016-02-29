@@ -1,10 +1,8 @@
-Subject: openssh: compile in configuration defaults, to operate without /etc/ssh/sshd_config.
-
-Index: openssh-6.7p1/servconf.c
-===================================================================
---- openssh-6.7p1.orig/servconf.c	2014-07-18 05:11:26.000000000 +0100
-+++ openssh-6.7p1/servconf.c	2015-03-02 13:03:08.243627246 +0000
-@@ -297,8 +297,6 @@
+diff --git a/servconf.c b/servconf.c
+index b19d30e..3bcab8a 100644
+--- a/servconf.c
++++ b/servconf.c
+@@ -336,8 +336,6 @@ fill_default_server_options(ServerOptions *options)
  	if (options->num_authkeys_files == 0) {
  		options->authorized_keys_files[options->num_authkeys_files++] =
  		    xstrdup(_PATH_SSH_USER_PERMITTED_KEYS);
@@ -13,16 +11,7 @@ Index: openssh-6.7p1/servconf.c
  	}
  	if (options->permit_tun == -1)
  		options->permit_tun = SSH_TUNMODE_NO;
-@@ -314,7 +312,7 @@
- 		options->fwd_opts.streamlocal_bind_unlink = 0;
- 	/* Turn privilege separation on by default */
- 	if (use_privsep == -1)
--		use_privsep = PRIVSEP_NOSANDBOX;
-+		use_privsep = PRIVSEP_ON;
- 
- #ifndef HAVE_MMAP
- 	if (use_privsep && options->compression == 1) {
-@@ -1698,6 +1696,8 @@
+@@ -1885,6 +1883,8 @@ load_server_config(const char *filename, Buffer *conf)
  
  	debug2("%s: filename %s", __func__, filename);
  	if ((f = fopen(filename, "r")) == NULL) {
