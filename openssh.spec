@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.2p2
-Release  : 37
+Release  : 38
 URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz
 Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz
 Source1  : openssh.tmpfiles
@@ -28,7 +28,7 @@ Patch1: stateless.patch
 Patch2: moduli-lookup.patch
 Patch3: ciphers.patch
 Patch4: default-ciphers-configuration.patch
-Patch5: default-enable-pam.patch
+Patch5: 0001-default-disable-challenge-response.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for

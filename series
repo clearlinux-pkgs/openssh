@@ -2,4 +2,4 @@ stateless.patch
 moduli-lookup.patch
 ciphers.patch
 default-ciphers-configuration.patch
-default-enable-pam.patch
+0001-default-disable-challenge-response.patch
