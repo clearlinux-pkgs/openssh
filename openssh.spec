@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.2p2
-Release  : 38
+Release  : 39
 URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz
 Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz
 Source1  : openssh.tmpfiles
