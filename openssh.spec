@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.3p1
-Release  : 41
+Release  : 42
 URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz
 Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz
 Source1  : openssh.tmpfiles
