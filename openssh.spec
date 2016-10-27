@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.3p1
-Release  : 42
+Release  : 43
 URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz
 Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -29,6 +29,7 @@ Patch2: moduli-lookup.patch
 Patch3: ciphers.patch
 Patch4: default-ciphers-configuration.patch
 Patch5: default-enable-pam.patch
+Patch6: 0001-Set-default-server-keep-alive.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -93,6 +94,7 @@ extras components for the openssh package.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 export LANG=C
