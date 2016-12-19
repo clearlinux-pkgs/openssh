@@ -19,6 +19,6 @@ Index: openssh-6.7p1/pathnames.h
  
 -	if ((f = fopen(_PATH_DH_MODULI, "r")) == NULL) {
 +	if ((f = fopen(_PATH_DH_MODULI, "r")) == NULL && (f = fopen(_PATH_DH_MODULI_STATELESS, "r")) == NULL) {
- 		logit("WARNING: could open open %s (%s), using fixed modulus",
+ 		logit("WARNING: could not open %s (%s), using fixed modulus",
  		    _PATH_DH_MODULI, strerror(errno));
  		return (dh_new_group_fallback(max));
