@@ -4,7 +4,7 @@
 #
 Name     : openssh
 Version  : 7.4p1
-Release  : 44
+Release  : 45
 URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
 Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -16,7 +16,6 @@ Summary  : The OpenSSH implementation of SSH protocol versions 1 and 2.
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
 Requires: openssh-bin
-Requires: openssh-autostart
 Requires: openssh-config
 Requires: openssh-data
 Requires: openssh-doc
