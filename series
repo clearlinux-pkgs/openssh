@@ -1,6 +1,7 @@
 stateless.patch
 moduli-lookup.patch
 ciphers.patch
+ecdsa-key-len.patch
 default-ciphers-configuration.patch
 default-enable-pam.patch
 0001-Set-default-server-keep-alive.patch
