@@ -5,16 +5,16 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 7.41
-Release  : 50
-URL      : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
-Source0  : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz
+Version  : 7.51
+Release  : 51
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source99 : http://openbsd.c3sl.ufpr.br/pub/OpenBSD/OpenSSH/portable/openssh-7.4p1.tar.gz.asc
+Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol versions 1 and 2.
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
@@ -100,7 +100,7 @@ extras components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-7.4p1
+%setup -q -n openssh-7.5p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -111,12 +111,12 @@ extras components for the openssh package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489701695
+export SOURCE_DATE_EPOCH=1490023075
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1489701695
+export SOURCE_DATE_EPOCH=1490023075
 rm -rf %{buildroot}
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
