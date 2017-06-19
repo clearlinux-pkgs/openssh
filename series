@@ -5,3 +5,4 @@ ecdsa-key-len.patch
 default-ciphers-configuration.patch
 default-enable-pam.patch
 0001-Set-default-server-keep-alive.patch
+0001-Disable-all-root-logins-by-default.patch

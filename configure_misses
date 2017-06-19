@@ -1,0 +1,164 @@
+Configure miss: kill
+Configure miss: ent
+Configure miss: mandoc
+Configure miss: pkgmk
+Configure miss: whether SYSTR_POLICY_KILL is declared
+Configure miss: whether SSH protocol 1 support is enabled
+Configure miss: if gcc supports compile flag -Qunused-arguments
+Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: blf.h usability
+Configure miss: blf.h presence
+Configure miss: blf.h
+Configure miss: bstring.h usability
+Configure miss: bstring.h presence
+Configure miss: bstring.h
+Configure miss: crypto/sha2.h usability
+Configure miss: crypto/sha2.h presence
+Configure miss: crypto/sha2.h
+Configure miss: ia.h usability
+Configure miss: ia.h presence
+Configure miss: ia.h
+Configure miss: iaf.h usability
+Configure miss: iaf.h presence
+Configure miss: iaf.h
+Configure miss: login.h usability
+Configure miss: login.h presence
+Configure miss: login.h
+Configure miss: maillock.h usability
+Configure miss: maillock.h presence
+Configure miss: maillock.h
+Configure miss: ndir.h usability
+Configure miss: ndir.h presence
+Configure miss: ndir.h
+Configure miss: net/if_tun.h usability
+Configure miss: net/if_tun.h presence
+Configure miss: net/if_tun.h
+Configure miss: netgroup.h usability
+Configure miss: netgroup.h presence
+Configure miss: netgroup.h
+Configure miss: pam/pam_appl.h usability
+Configure miss: pam/pam_appl.h presence
+Configure miss: pam/pam_appl.h
+Configure miss: readpassphrase.h usability
+Configure miss: readpassphrase.h presence
+Configure miss: readpassphrase.h
+Configure miss: sha2.h usability
+Configure miss: sha2.h presence
+Configure miss: sha2.h
+Configure miss: sys/audit.h usability
+Configure miss: sys/audit.h presence
+Configure miss: sys/audit.h
+Configure miss: sys/bsdtty.h usability
+Configure miss: sys/bsdtty.h presence
+Configure miss: sys/bsdtty.h
+Configure miss: sys/ndir.h usability
+Configure miss: sys/ndir.h presence
+Configure miss: sys/ndir.h
+Configure miss: sys/pstat.h usability
+Configure miss: sys/pstat.h presence
+Configure miss: sys/stream.h usability
+Configure miss: sys/stream.h presence
+Configure miss: sys/stream.h
+Configure miss: sys/strtio.h usability
+Configure miss: sys/strtio.h presence
+Configure miss: sys/strtio.h
+Configure miss: sys/timers.h usability
+Configure miss: sys/timers.h presence
+Configure miss: sys/timers.h
+Configure miss: tmpdir.h usability
+Configure miss: tmpdir.h presence
+Configure miss: tmpdir.h
+Configure miss: ucred.h usability
+Configure miss: ucred.h presence
+Configure miss: ucred.h
+Configure miss: usersec.h usability
+Configure miss: usersec.h presence
+Configure miss: usersec.h
+Configure miss: vis.h usability
+Configure miss: vis.h presence
+Configure miss: vis.h
+Configure miss: sys/ptms.h
+Configure miss: login_cap.h
+Configure miss: possibly buggy zlib
+Configure miss: bsd/libutil.h usability
+Configure miss: bsd/libutil.h presence
+Configure miss: bsd/libutil.h
+Configure miss: library containing fmt_scaled
+Configure miss: library containing scan_scaled
+Configure miss: fmt_scaled
+Configure miss: scan_scaled
+Configure miss: gl_matchc field in glob_t
+Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
+Configure miss: whether VIS_ALL is declared
+Configure miss: Blowfish_initstate
+Configure miss: Blowfish_expandstate
+Configure miss: Blowfish_expand0state
+Configure miss: Blowfish_stream2word
+Configure miss: b64_ntop
+Configure miss: __b64_ntop
+Configure miss: b64_pton
+Configure miss: __b64_pton
+Configure miss: bcrypt_pbkdf
+Configure miss: bindresvport_sa
+Configure miss: blf_enc
+Configure miss: cap_rights_limit
+Configure miss: closefrom
+Configure miss: getpeereid
+Configure miss: getpeerucred
+Configure miss: _getpty
+Configure miss: group_from_gid
+Configure miss: login_getcapbool
+Configure miss: md5_crypt
+Configure miss: memset_s
+Configure miss: ngetaddrinfo
+Configure miss: nsleep
+Configure miss: ogetaddrinfo
+Configure miss: openlog_r
+Configure miss: pledge
+Configure miss: pstat
+Configure miss: readpassphrase
+Configure miss: reallocarray
+Configure miss: setdtablesize
+Configure miss: setgroupent
+Configure miss: setlogin
+Configure miss: setpassent
+Configure miss: setpcred
+Configure miss: sigvec
+Configure miss: strmode
+Configure miss: strnvis
+Configure miss: strtonum
+Configure miss: swap32
+Configure miss: timingsafe_bcmp
+Configure miss: user_from_uid
+Configure miss: whether getrusage is declared
+Configure miss: if realpath works with non-existent files
+Configure miss: getutxuser
+Configure miss: setutxdb
+Configure miss: getlastlogxbyname
+Configure miss: whether OpenSSL has crippled AES support
+Configure miss: arc4random
+Configure miss: arc4random_buf
+Configure miss: arc4random_stir
+Configure miss: arc4random_uniform
+Configure miss: ia_openinfo in -liaf
+Configure miss: whether pam_strerror takes only one argument
+Configure miss: syslen field in utmpx.h
+Configure miss: ut_time field in utmp.h
+Configure miss: ut_time field in utmpx.h
+Configure miss: struct passwd.pw_class
+Configure miss: struct passwd.pw_change
+Configure miss: struct passwd.pw_expire
+Configure miss: __ss_family field in struct sockaddr_storage
+Configure miss: msg_accrights field in struct msghdr
+Configure miss: whether getopt has optreset support
+Configure miss: library containing getrrsetbyname
+Configure miss: library containing res_query
+Configure miss: library containing dn_expand
+Configure miss: if res_query will link
+Configure miss: whether _getshort is declared
+Configure miss: whether _getlong is declared
+Configure miss: "/dev/ptc"
+Configure miss: "/etc/default/login"
+Configure miss: if your system defines LASTLOG_FILE
+Configure miss: if your system defines WTMPX_FILE
+Configure miss: whether BROKEN_GETADDRINFO is declared

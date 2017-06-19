@@ -1,0 +1,28 @@
+From 755aaff02b1588b968a9c34d4e894a0962825a5d Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Mon, 19 Jun 2017 14:22:45 -0700
+Subject: [PATCH] Disable all root logins by default.
+
+Since 7.0, root is not permitted to log in with a password by default,
+but we want to disable root login entirely by default, since enabling
+it is so trivial.
+---
+ servconf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/servconf.c b/servconf.c
+index 56b8316..3d97e89 100644
+--- a/servconf.c
++++ b/servconf.c
+@@ -222,7 +222,7 @@ fill_default_server_options(ServerOptions *options)
+ 	if (options->login_grace_time == -1)
+ 		options->login_grace_time = 120;
+ 	if (options->permit_root_login == PERMIT_NOT_SET)
+-		options->permit_root_login = PERMIT_NO_PASSWD;
++		options->permit_root_login = PERMIT_NO;
+ 	if (options->ignore_rhosts == -1)
+ 		options->ignore_rhosts = 1;
+ 	if (options->ignore_user_known_hosts == -1)
+-- 
+2.13.1
+
