@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 7.51
-Release  : 58
+Release  : 59
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
 Source1  : openssh.tmpfiles
