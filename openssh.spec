@@ -5,8 +5,8 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 7.51
-Release  : 59
+Version  : 7.5p1
+Release  : 60
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -114,12 +114,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1501076725
+export SOURCE_DATE_EPOCH=1525803926
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1501076725
+export SOURCE_DATE_EPOCH=1525803926
 rm -rf %{buildroot}
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
@@ -139,6 +139,8 @@ cp contrib/ssh-copy-id %{buildroot}/usr/bin/
 chmod +x %{buildroot}/usr/bin/ssh-copy-id
 mkdir -p %{buildroot}/usr/share/man/man1/
 cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
+mkdir -p %{buildroot}/usr/share/doc/openssh/
+cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 ## make_install_append end
 
 %files
@@ -178,6 +180,7 @@ cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
 
 %files doc
 %defattr(-,root,root,-)
+%doc /usr/share/doc/openssh/*
 %doc /usr/share/man/man1/*
 %doc /usr/share/man/man5/*
 %doc /usr/share/man/man8/*

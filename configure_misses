@@ -103,8 +103,6 @@ Configure miss: bindresvport_sa
 Configure miss: blf_enc
 Configure miss: cap_rights_limit
 Configure miss: closefrom
-Configure miss: getpeereid
-Configure miss: getpeerucred
 Configure miss: _getpty
 Configure miss: group_from_gid
 Configure miss: login_getcapbool
@@ -117,7 +115,6 @@ Configure miss: openlog_r
 Configure miss: pledge
 Configure miss: pstat
 Configure miss: readpassphrase
-Configure miss: reallocarray
 Configure miss: setdtablesize
 Configure miss: setgroupent
 Configure miss: setlogin
@@ -137,7 +134,6 @@ Configure miss: setutxdb
 Configure miss: getlastlogxbyname
 Configure miss: whether OpenSSL has crippled AES support
 Configure miss: arc4random
-Configure miss: arc4random_buf
 Configure miss: arc4random_stir
 Configure miss: arc4random_uniform
 Configure miss: ia_openinfo in -liaf
