@@ -3,9 +3,9 @@ Configure miss: ent
 Configure miss: mandoc
 Configure miss: pkgmk
 Configure miss: whether SYSTR_POLICY_KILL is declared
-Configure miss: whether SSH protocol 1 support is enabled
 Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: blf.h usability
 Configure miss: blf.h presence
 Configure miss: blf.h
@@ -45,12 +45,12 @@ Configure miss: readpassphrase.h
 Configure miss: sha2.h usability
 Configure miss: sha2.h presence
 Configure miss: sha2.h
-Configure miss: sys/audit.h usability
-Configure miss: sys/audit.h presence
-Configure miss: sys/audit.h
 Configure miss: sys/bsdtty.h usability
 Configure miss: sys/bsdtty.h presence
 Configure miss: sys/bsdtty.h
+Configure miss: sys/label.h usability
+Configure miss: sys/label.h presence
+Configure miss: sys/label.h
 Configure miss: sys/ndir.h usability
 Configure miss: sys/ndir.h presence
 Configure miss: sys/ndir.h
@@ -77,8 +77,11 @@ Configure miss: usersec.h
 Configure miss: vis.h usability
 Configure miss: vis.h presence
 Configure miss: vis.h
+Configure miss: sys/audit.h
+Configure miss: sys/capsicum.h
 Configure miss: sys/ptms.h
 Configure miss: login_cap.h
+Configure miss: linux/if.h
 Configure miss: possibly buggy zlib
 Configure miss: bsd/libutil.h usability
 Configure miss: bsd/libutil.h presence
@@ -103,6 +106,7 @@ Configure miss: bindresvport_sa
 Configure miss: blf_enc
 Configure miss: cap_rights_limit
 Configure miss: closefrom
+Configure miss: freezero
 Configure miss: _getpty
 Configure miss: group_from_gid
 Configure miss: login_getcapbool
@@ -115,6 +119,7 @@ Configure miss: openlog_r
 Configure miss: pledge
 Configure miss: pstat
 Configure miss: readpassphrase
+Configure miss: recallocarray
 Configure miss: setdtablesize
 Configure miss: setgroupent
 Configure miss: setlogin
@@ -127,7 +132,6 @@ Configure miss: strtonum
 Configure miss: swap32
 Configure miss: timingsafe_bcmp
 Configure miss: user_from_uid
-Configure miss: whether getrusage is declared
 Configure miss: if realpath works with non-existent files
 Configure miss: getutxuser
 Configure miss: setutxdb

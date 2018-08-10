@@ -2,21 +2,26 @@ diff --git a/servconf.c b/servconf.c
 index b19d30e..3bcab8a 100644
 --- a/servconf.c
 +++ b/servconf.c
-@@ -336,8 +336,6 @@ fill_default_server_options(ServerOptions *options)
- 	if (options->num_authkeys_files == 0) {
- 		options->authorized_keys_files[options->num_authkeys_files++] =
- 		    xstrdup(_PATH_SSH_USER_PERMITTED_KEYS);
--		options->authorized_keys_files[options->num_authkeys_files++] =
--		    xstrdup(_PATH_SSH_USER_PERMITTED_KEYS2);
- 	}
- 	if (options->permit_tun == -1)
- 		options->permit_tun = SSH_TUNMODE_NO;
-@@ -1885,6 +1883,8 @@ load_server_config(const char *filename, Buffer *conf)
+@@ -2064,6 +2064,9 @@
  
  	debug2("%s: filename %s", __func__, filename);
  	if ((f = fopen(filename, "r")) == NULL) {
 +		if (errno == ENOENT)
-+			return;
++                       return;
++
  		perror(filename);
  		exit(1);
  	}
+--- openssh-7.7p1/servconf.c~	2018-08-10 19:35:32.000000000 +0000
++++ openssh-7.7p1/servconf.c	2018-08-10 19:41:17.615568043 +0000
+@@ -364,10 +364,6 @@
+ 		    &options->authorized_keys_files,
+ 		    &options->num_authkeys_files,
+ 		    _PATH_SSH_USER_PERMITTED_KEYS);
+-		array_append("[default]", 0, "AuthorizedKeysFiles",
+-		    &options->authorized_keys_files,
+-		    &options->num_authkeys_files,
+-		    _PATH_SSH_USER_PERMITTED_KEYS2);
+ 	}
+ 	if (options->permit_tun == -1)
+ 		options->permit_tun = SSH_TUNMODE_NO;
