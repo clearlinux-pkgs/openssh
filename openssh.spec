@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 7.7p1
-Release  : 62
+Release  : 63
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -34,6 +34,7 @@ Patch4: ecdsa-key-len.patch
 Patch5: default-ciphers-configuration.patch
 Patch6: default-enable-pam.patch
 Patch7: 0001-Set-default-server-keep-alive.patch
+Patch8: 0001-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -118,18 +119,19 @@ man components for the openssh package.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533930368
+export SOURCE_DATE_EPOCH=1533930724
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1533930368
+export SOURCE_DATE_EPOCH=1533930724
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/openssh
 cp LICENCE %{buildroot}/usr/share/doc/openssh/LICENCE
