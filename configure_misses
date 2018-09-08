@@ -6,6 +6,7 @@ Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
 Configure miss: if gcc supports compile flag -mretpoline
+Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
 Configure miss: blf.h usability
 Configure miss: blf.h presence
 Configure miss: blf.h

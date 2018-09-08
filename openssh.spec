@@ -5,16 +5,16 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 7.7p1
-Release  : 63
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
+Version  : 7.8p1
+Release  : 64
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz.asc
+Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
@@ -45,7 +45,7 @@ arbitrary TCP/IP ports can also be forwarded over the secure channel.
 
 OpenSSH is OpenBSD's rework of the last free version of SSH, bringing it
 up to date in terms of security and features, as well as removing all
-patented algorithms to seperate libraries (OpenSSL).
+patented algorithms to separate libraries (OpenSSL).
 
 This package includes all files necessary for both the OpenSSH
 client and server.
@@ -111,7 +111,7 @@ man components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-7.7p1
+%setup -q -n openssh-7.8p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -126,12 +126,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533930724
+export SOURCE_DATE_EPOCH=1536417166
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1533930724
+export SOURCE_DATE_EPOCH=1536417166
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/openssh
 cp LICENCE %{buildroot}/usr/share/doc/openssh/LICENCE

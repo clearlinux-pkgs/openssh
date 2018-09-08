@@ -20,7 +20,7 @@ diff -urpN a/servconf.c b/servconf.c
 @@ -331,6 +331,8 @@ fill_default_server_options(ServerOption
  		options->ip_qos_interactive = IPTOS_LOWDELAY;
  	if (options->ip_qos_bulk == -1)
- 		options->ip_qos_bulk = IPTOS_THROUGHPUT;
+ 		options->ip_qos_bulk = IPTOS_DSCP_CS1;
 +	if (options->ciphers == NULL)
 +		options->ciphers = xstrdup(SECURE_CIPHERS);
  	if (options->version_addendum == NULL)
