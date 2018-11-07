@@ -1,17 +1,17 @@
-From d13241f0e19eaf23f9ac99da5494e7ba1e91e340 Mon Sep 17 00:00:00 2001
+From 500c506d87b189304e6a5dfbe89540518c6f644e Mon Sep 17 00:00:00 2001
 From: Thiago Macieira <thiago.macieira@intel.com>
 Date: Fri, 10 Aug 2018 12:36:20 -0700
-Subject: [PATCH 1/1] Make OpenSSH print a MOTD file in /usr/share/defaults too
+Subject: [PATCH 7/7] Make OpenSSH print a MOTD file in /usr/share/defaults too
 
 ---
  session.c | 5 +++++
  1 file changed, 5 insertions(+)
 
 diff --git a/session.c b/session.c
-index 58826db1..cbc1831c 100644
+index 2d0958d..2c09761 100644
 --- a/session.c
 +++ b/session.c
-@@ -801,8 +801,13 @@ do_motd(void)
+@@ -832,8 +832,13 @@ do_motd(void)
  #ifdef HAVE_LOGIN_CAP
  		f = fopen(login_getcapstr(lc, "welcome", "/etc/motd",
  		    "/etc/motd"), "r");
@@ -26,5 +26,5 @@ index 58826db1..cbc1831c 100644
  		if (f) {
  			while (fgets(buf, sizeof(buf), f))
 -- 
-2.18.0
+2.19.1
 

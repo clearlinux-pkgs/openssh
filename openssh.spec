@@ -5,36 +5,38 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 7.8p1
-Release  : 64
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz
+Version  : 7.9p1
+Release  : 66
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz.asc
+Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
-Requires: openssh-bin
-Requires: openssh-config
-Requires: openssh-data
-Requires: openssh-man
+Requires: openssh-bin = %{version}-%{release}
+Requires: openssh-config = %{version}-%{release}
+Requires: openssh-data = %{version}-%{release}
+Requires: openssh-libexec = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
+Requires: openssh-man = %{version}-%{release}
+Requires: openssh-services = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
 BuildRequires : libcap-dev
 BuildRequires : openssl-dev
 BuildRequires : pkgconfig(zlib)
-Patch1: stateless.patch
-Patch2: moduli-lookup.patch
-Patch3: ciphers.patch
-Patch4: ecdsa-key-len.patch
-Patch5: default-ciphers-configuration.patch
-Patch6: default-enable-pam.patch
-Patch7: 0001-Set-default-server-keep-alive.patch
-Patch8: 0001-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
+Patch1: 0001-Make-SSH-stateless.patch
+Patch2: 0002-Stateless-moduli.patch
+Patch3: 0003-Increase-ECDSA-default-length-to-521.patch
+Patch4: 0004-Default-default-secure-ciphers.patch
+Patch5: 0005-Always-use-PAM-by-default.patch
+Patch6: 0006-Set-default-server-keep-alive.patch
+Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -61,9 +63,12 @@ autostart components for the openssh package.
 %package bin
 Summary: bin components for the openssh package.
 Group: Binaries
-Requires: openssh-data
-Requires: openssh-config
-Requires: openssh-man
+Requires: openssh-data = %{version}-%{release}
+Requires: openssh-libexec = %{version}-%{release}
+Requires: openssh-config = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
+Requires: openssh-man = %{version}-%{release}
+Requires: openssh-services = %{version}-%{release}
 
 %description bin
 bin components for the openssh package.
@@ -88,7 +93,7 @@ data components for the openssh package.
 %package doc
 Summary: doc components for the openssh package.
 Group: Documentation
-Requires: openssh-man
+Requires: openssh-man = %{version}-%{release}
 
 %description doc
 doc components for the openssh package.
@@ -102,6 +107,24 @@ Group: Default
 extras components for the openssh package.
 
 
+%package libexec
+Summary: libexec components for the openssh package.
+Group: Default
+Requires: openssh-config = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
+
+%description libexec
+libexec components for the openssh package.
+
+
+%package license
+Summary: license components for the openssh package.
+Group: Default
+
+%description license
+license components for the openssh package.
+
+
 %package man
 Summary: man components for the openssh package.
 Group: Default
@@ -110,8 +133,16 @@ Group: Default
 man components for the openssh package.
 
 
+%package services
+Summary: services components for the openssh package.
+Group: Systemd services
+
+%description services
+services components for the openssh package.
+
+
 %prep
-%setup -q -n openssh-7.8p1
+%setup -q -n openssh-7.9p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -119,22 +150,21 @@ man components for the openssh package.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536417166
+export SOURCE_DATE_EPOCH=1541631943
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1536417166
+export SOURCE_DATE_EPOCH=1541631943
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/openssh
-cp LICENCE %{buildroot}/usr/share/doc/openssh/LICENCE
+mkdir -p %{buildroot}/usr/share/package-licenses/openssh
+cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/sshd-keygen.service
@@ -167,7 +197,6 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 %files bin
 %defattr(-,root,root,-)
 %exclude /usr/bin/sshd
-%exclude /usr/libexec/sftp-server
 /usr/bin/scp
 /usr/bin/sftp
 /usr/bin/ssh
@@ -176,16 +205,9 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/bin/ssh-copy-id
 /usr/bin/ssh-keygen
 /usr/bin/ssh-keyscan
-/usr/libexec/ssh-keysign
-/usr/libexec/ssh-pkcs11-helper
 
 %files config
 %defattr(-,root,root,-)
-%exclude /usr/lib/systemd/system/sockets.target.wants/sshd.socket
-%exclude /usr/lib/systemd/system/sshd-keygen.service
-%exclude /usr/lib/systemd/system/sshd.service
-%exclude /usr/lib/systemd/system/sshd.socket
-%exclude /usr/lib/systemd/system/sshd@.service
 /usr/lib/tmpfiles.d/openssh.conf
 
 %files data
@@ -206,8 +228,18 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/lib/systemd/system/sshd@.service
 /usr/libexec/sftp-server
 
-%files man
+%files libexec
 %defattr(-,root,root,-)
+%exclude /usr/libexec/sftp-server
+/usr/libexec/ssh-keysign
+/usr/libexec/ssh-pkcs11-helper
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/openssh/LICENCE
+
+%files man
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/scp.1
 /usr/share/man/man1/sftp.1
 /usr/share/man/man1/ssh-add.1
@@ -223,3 +255,11 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/share/man/man8/ssh-keysign.8
 /usr/share/man/man8/ssh-pkcs11-helper.8
 /usr/share/man/man8/sshd.8
+
+%files services
+%defattr(-,root,root,-)
+%exclude /usr/lib/systemd/system/sockets.target.wants/sshd.socket
+%exclude /usr/lib/systemd/system/sshd-keygen.service
+%exclude /usr/lib/systemd/system/sshd.service
+%exclude /usr/lib/systemd/system/sshd.socket
+%exclude /usr/lib/systemd/system/sshd@.service

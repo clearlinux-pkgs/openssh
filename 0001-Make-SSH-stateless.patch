@@ -1,0 +1,37 @@
+From 1af2d33c865b7923d6804b325a5b41ee640d6fba Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Wed, 7 Nov 2018 14:38:03 -0800
+Subject: [PATCH 1/7] Make SSH stateless.
+
+---
+ servconf.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/servconf.c b/servconf.c
+index 932d363..bc91a7b 100644
+--- a/servconf.c
++++ b/servconf.c
+@@ -388,10 +388,6 @@ fill_default_server_options(ServerOptions *options)
+ 		    &options->authorized_keys_files,
+ 		    &options->num_authkeys_files,
+ 		    _PATH_SSH_USER_PERMITTED_KEYS);
+-		array_append("[default]", 0, "AuthorizedKeysFiles",
+-		    &options->authorized_keys_files,
+-		    &options->num_authkeys_files,
+-		    _PATH_SSH_USER_PERMITTED_KEYS2);
+ 	}
+ 	if (options->permit_tun == -1)
+ 		options->permit_tun = SSH_TUNMODE_NO;
+@@ -2182,6 +2178,9 @@ load_server_config(const char *filename, struct sshbuf *conf)
+ 
+ 	debug2("%s: filename %s", __func__, filename);
+ 	if ((f = fopen(filename, "r")) == NULL) {
++		if (errno == ENOENT)
++                       return;
++
+ 		perror(filename);
+ 		exit(1);
+ 	}
+-- 
+2.19.1
+

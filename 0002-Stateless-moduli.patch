@@ -1,0 +1,39 @@
+From 63d8777d3441f5a3d5f115e22cacd5d332d11859 Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Wed, 7 Nov 2018 14:38:46 -0800
+Subject: [PATCH 2/7] Stateless moduli.
+
+---
+ dh.c        | 2 +-
+ pathnames.h | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/dh.c b/dh.c
+index 657b32d..c0ecaba 100644
+--- a/dh.c
++++ b/dh.c
+@@ -152,7 +152,7 @@ choose_dh(int min, int wantbits, int max)
+ 	int best, bestcount, which, linenum;
+ 	struct dhgroup dhg;
+ 
+-	if ((f = fopen(_PATH_DH_MODULI, "r")) == NULL) {
++	if ((f = fopen(_PATH_DH_MODULI, "r")) == NULL && (f = fopen(_PATH_DH_MODULI_STATELESS, "r")) == NULL) {
+ 		logit("WARNING: could not open %s (%s), using fixed modulus",
+ 		    _PATH_DH_MODULI, strerror(errno));
+ 		return (dh_new_group_fallback(max));
+diff --git a/pathnames.h b/pathnames.h
+index cb44caa..1470963 100644
+--- a/pathnames.h
++++ b/pathnames.h
+@@ -42,6 +42,8 @@
+ #define _PATH_HOST_XMSS_KEY_FILE	SSHDIR "/ssh_host_xmss_key"
+ #define _PATH_HOST_RSA_KEY_FILE		SSHDIR "/ssh_host_rsa_key"
+ #define _PATH_DH_MODULI			SSHDIR "/moduli"
++/* Stateless moduli fallback */
++#define _PATH_DH_MODULI_STATELESS      	"/usr/share/defaults/ssh/moduli"
+ 
+ #ifndef _PATH_SSH_PROGRAM
+ #define _PATH_SSH_PROGRAM		"/usr/bin/ssh"
+-- 
+2.19.1
+

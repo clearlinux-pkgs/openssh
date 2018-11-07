@@ -1,9 +1,7 @@
-stateless.patch
-moduli-lookup.patch
-ciphers.patch
-ecdsa-key-len.patch
-default-ciphers-configuration.patch
-default-enable-pam.patch
-0001-Set-default-server-keep-alive.patch
-#0001-Disable-all-root-logins-by-default.patch
-0001-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
+0001-Make-SSH-stateless.patch
+0002-Stateless-moduli.patch
+0003-Increase-ECDSA-default-length-to-521.patch
+0004-Default-default-secure-ciphers.patch
+0005-Always-use-PAM-by-default.patch
+0006-Set-default-server-keep-alive.patch
+0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
