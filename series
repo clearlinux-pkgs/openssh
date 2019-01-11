@@ -5,3 +5,4 @@
 0005-Always-use-PAM-by-default.patch
 0006-Set-default-server-keep-alive.patch
 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
+CVE-2018-20685.patch
