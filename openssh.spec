@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 7.9p1
-Release  : 67
+Release  : 68
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -38,6 +38,7 @@ Patch5: 0005-Always-use-PAM-by-default.patch
 Patch6: 0006-Set-default-server-keep-alive.patch
 Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
 Patch8: CVE-2018-20685.patch
+Patch9: CVE-2019-6109.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -152,13 +153,14 @@ services components for the openssh package.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547170865
+export SOURCE_DATE_EPOCH=1548819283
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -167,7 +169,7 @@ export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=use
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1547170865
+export SOURCE_DATE_EPOCH=1548819283
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
