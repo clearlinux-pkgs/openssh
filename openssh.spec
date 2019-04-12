@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 7.9p1
-Release  : 68
+Release  : 69
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -24,7 +24,6 @@ Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
 Requires: openssh-license = %{version}-%{release}
 Requires: openssh-man = %{version}-%{release}
-Requires: openssh-services = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
 BuildRequires : libcap-dev
@@ -69,7 +68,6 @@ Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
 Requires: openssh-license = %{version}-%{release}
-Requires: openssh-man = %{version}-%{release}
 Requires: openssh-services = %{version}-%{release}
 
 %description bin
@@ -101,14 +99,6 @@ Requires: openssh-man = %{version}-%{release}
 doc components for the openssh package.
 
 
-%package extras
-Summary: extras components for the openssh package.
-Group: Default
-
-%description extras
-extras components for the openssh package.
-
-
 %package libexec
 Summary: libexec components for the openssh package.
 Group: Default
@@ -133,6 +123,16 @@ Group: Default
 
 %description man
 man components for the openssh package.
+
+
+%package server-extras
+Summary: server-extras components for the openssh package.
+Group: Default
+Requires: openssh-services = %{version}-%{release}
+Requires: openssh-autostart = %{version}-%{release}
+
+%description server-extras
+server-extras components for the openssh package.
 
 
 %package services
@@ -160,7 +160,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548819283
+export SOURCE_DATE_EPOCH=1555218363
+export LDFLAGS="${LDFLAGS} -fno-lto"
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -169,7 +170,7 @@ export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=use
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1548819283
+export SOURCE_DATE_EPOCH=1555218363
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
@@ -226,16 +227,6 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/openssh/*
 
-%files extras
-%defattr(-,root,root,-)
-/usr/bin/sshd
-/usr/lib/systemd/system/sockets.target.wants/sshd.socket
-/usr/lib/systemd/system/sshd-keygen.service
-/usr/lib/systemd/system/sshd.service
-/usr/lib/systemd/system/sshd.socket
-/usr/lib/systemd/system/sshd@.service
-/usr/libexec/sftp-server
-
 %files libexec
 %defattr(-,root,root,-)
 %exclude /usr/libexec/sftp-server
@@ -263,6 +254,15 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/share/man/man8/ssh-keysign.8
 /usr/share/man/man8/ssh-pkcs11-helper.8
 /usr/share/man/man8/sshd.8
+
+%files server-extras
+%defattr(-,root,root,-)
+/usr/bin/sshd
+/usr/lib/systemd/system/sshd-keygen.service
+/usr/lib/systemd/system/sshd.service
+/usr/lib/systemd/system/sshd.socket
+/usr/lib/systemd/system/sshd@.service
+/usr/libexec/sftp-server
 
 %files services
 %defattr(-,root,root,-)
