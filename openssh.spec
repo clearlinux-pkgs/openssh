@@ -102,6 +102,7 @@ Summary: extras-server components for the openssh package.
 Group: Default
 Requires: openssh-services = %{version}-%{release}
 Requires: openssh-autostart = %{version}-%{release}
+Provides: openssh-server-extras
 
 %description extras-server
 extras-server components for the openssh package.
