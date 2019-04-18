@@ -5,16 +5,16 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 7.9p1
-Release  : 69
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
+Version  : 8.0p1
+Release  : 70
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz.asc
+Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
 License  : BSD-3-Clause BSD-3-Clause-Clear
@@ -36,8 +36,6 @@ Patch4: 0004-Default-default-secure-ciphers.patch
 Patch5: 0005-Always-use-PAM-by-default.patch
 Patch6: 0006-Set-default-server-keep-alive.patch
 Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
-Patch8: CVE-2018-20685.patch
-Patch9: CVE-2019-6109.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -99,6 +97,16 @@ Requires: openssh-man = %{version}-%{release}
 doc components for the openssh package.
 
 
+%package extras-server
+Summary: extras-server components for the openssh package.
+Group: Default
+Requires: openssh-services = %{version}-%{release}
+Requires: openssh-autostart = %{version}-%{release}
+
+%description extras-server
+extras-server components for the openssh package.
+
+
 %package libexec
 Summary: libexec components for the openssh package.
 Group: Default
@@ -125,16 +133,6 @@ Group: Default
 man components for the openssh package.
 
 
-%package server-extras
-Summary: server-extras components for the openssh package.
-Group: Default
-Requires: openssh-services = %{version}-%{release}
-Requires: openssh-autostart = %{version}-%{release}
-
-%description server-extras
-server-extras components for the openssh package.
-
-
 %package services
 Summary: services components for the openssh package.
 Group: Systemd services
@@ -144,7 +142,7 @@ services components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-7.9p1
+%setup -q -n openssh-8.0p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -152,25 +150,22 @@ services components for the openssh package.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
-%patch9 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555218363
-export LDFLAGS="${LDFLAGS} -fno-lto"
-export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1555597603
+export CFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1555218363
+export SOURCE_DATE_EPOCH=1555597603
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
@@ -227,6 +222,15 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 %defattr(0644,root,root,0755)
 %doc /usr/share/doc/openssh/*
 
+%files extras-server
+%defattr(-,root,root,-)
+/usr/bin/sshd
+/usr/lib/systemd/system/sshd-keygen.service
+/usr/lib/systemd/system/sshd.service
+/usr/lib/systemd/system/sshd.socket
+/usr/lib/systemd/system/sshd@.service
+/usr/libexec/sftp-server
+
 %files libexec
 %defattr(-,root,root,-)
 %exclude /usr/libexec/sftp-server
@@ -254,15 +258,6 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/share/man/man8/ssh-keysign.8
 /usr/share/man/man8/ssh-pkcs11-helper.8
 /usr/share/man/man8/sshd.8
-
-%files server-extras
-%defattr(-,root,root,-)
-/usr/bin/sshd
-/usr/lib/systemd/system/sshd-keygen.service
-/usr/lib/systemd/system/sshd.service
-/usr/lib/systemd/system/sshd.socket
-/usr/lib/systemd/system/sshd@.service
-/usr/libexec/sftp-server
 
 %files services
 %defattr(-,root,root,-)

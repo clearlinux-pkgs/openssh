@@ -3,6 +3,8 @@ From: Auke Kok <auke-jan.h.kok@intel.com>
 Date: Wed, 7 Nov 2018 14:41:26 -0800
 Subject: [PATCH 3/7] Increase ECDSA default length to 521
 
+note the 521 is not a typo for 512; it really is 521
+
 ---
  ssh-keygen.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -17,9 +19,9 @@ index 46b3af5..a2e5b9f 100644
  #define DEFAULT_BITS_DSA	1024
 -#define DEFAULT_BITS_ECDSA	256
 +#define DEFAULT_BITS_ECDSA	521
- u_int32_t bits = 0;
  
- /*
+ static int quiet = 0;
+ 
 -- 
 2.19.1
 

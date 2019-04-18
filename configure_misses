@@ -137,14 +137,13 @@ Configure miss: if realpath works with non-existent files
 Configure miss: getutxuser
 Configure miss: setutxdb
 Configure miss: getlastlogxbyname
-Configure miss: if programs using OpenSSL functions will link
-Configure miss: if programs using OpenSSL need -ldl
-Configure miss: EVP_MD_CTX_init
 Configure miss: EVP_MD_CTX_cleanup
+Configure miss: EVP_MD_CTX_init
 Configure miss: HMAC_CTX_init
+Configure miss: OpenSSL_add_all_algorithms
+Configure miss: EVP_CIPHER_CTX_get_iv
+Configure miss: EVP_CIPHER_CTX_set_iv
 Configure miss: whether OpenSSL has crippled AES support
-Configure miss: library containing EVP_CIPHER_CTX_get_iv
-Configure miss: library containing EVP_CIPHER_CTX_set_iv
 Configure miss: arc4random
 Configure miss: arc4random_stir
 Configure miss: arc4random_uniform
