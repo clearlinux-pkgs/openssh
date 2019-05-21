@@ -2,5 +2,5 @@
 # undesirable. One entry per line, no whitespace.
 
 # openssh-services only required by sshd which is packaged as
-# openssh-server-extras
+# openssh-extras-server
 openssh-services

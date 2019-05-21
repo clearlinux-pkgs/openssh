@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 8.0p1
-Release  : 71
+Release  : 72
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -102,7 +102,6 @@ Summary: extras-server components for the openssh package.
 Group: Default
 Requires: openssh-services = %{version}-%{release}
 Requires: openssh-autostart = %{version}-%{release}
-Provides: openssh-server-extras
 
 %description extras-server
 extras-server components for the openssh package.
@@ -157,16 +156,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555597603
-export CFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fcf-protection=full -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1558472279
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1555597603
+export SOURCE_DATE_EPOCH=1558472279
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
