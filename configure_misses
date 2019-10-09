@@ -3,8 +3,8 @@ Configure miss: ent
 Configure miss: mandoc
 Configure miss: pkgmk
 Configure miss: whether SYSTR_POLICY_KILL is declared
-Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
 Configure miss: blf.h usability
@@ -60,6 +60,9 @@ Configure miss: sys/pstat.h presence
 Configure miss: sys/stream.h usability
 Configure miss: sys/stream.h presence
 Configure miss: sys/stream.h
+Configure miss: sys/stropts.h usability
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h
 Configure miss: sys/strtio.h usability
 Configure miss: sys/strtio.h presence
 Configure miss: sys/strtio.h
@@ -82,7 +85,6 @@ Configure miss: sys/audit.h
 Configure miss: sys/capsicum.h
 Configure miss: sys/ptms.h
 Configure miss: login_cap.h
-Configure miss: linux/if.h
 Configure miss: possibly buggy zlib
 Configure miss: bsd/libutil.h usability
 Configure miss: bsd/libutil.h presence
@@ -98,6 +100,9 @@ Configure miss: Blowfish_initstate
 Configure miss: Blowfish_expandstate
 Configure miss: Blowfish_expand0state
 Configure miss: Blowfish_stream2word
+Configure miss: SHA256Update
+Configure miss: SHA384Update
+Configure miss: SHA512Update
 Configure miss: b64_ntop
 Configure miss: __b64_ntop
 Configure miss: b64_pton
@@ -133,7 +138,6 @@ Configure miss: strtonum
 Configure miss: swap32
 Configure miss: timingsafe_bcmp
 Configure miss: user_from_uid
-Configure miss: if realpath works with non-existent files
 Configure miss: getutxuser
 Configure miss: setutxdb
 Configure miss: getlastlogxbyname

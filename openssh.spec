@@ -5,24 +5,23 @@
 # Source0 file verified with key 0xD3E5F56B6D920D30 (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 8.0p1
-Release  : 73
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
+Version  : 8.1p1
+Release  : 74
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source99 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz.asc
+Source6 : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
-License  : BSD-3-Clause BSD-3-Clause-Clear
+License  : BSD-2-Clause BSD-3-Clause Beerware ISC MIT Public-Domain
 Requires: openssh-bin = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 Requires: openssh-man = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
@@ -65,7 +64,6 @@ Group: Binaries
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 Requires: openssh-services = %{version}-%{release}
 
 %description bin
@@ -111,18 +109,9 @@ extras-server components for the openssh package.
 Summary: libexec components for the openssh package.
 Group: Default
 Requires: openssh-config = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 
 %description libexec
 libexec components for the openssh package.
-
-
-%package license
-Summary: license components for the openssh package.
-Group: Default
-
-%description license
-license components for the openssh package.
 
 
 %package man
@@ -142,7 +131,7 @@ services components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-8.0p1
+%setup -q -n openssh-8.1p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -155,8 +144,8 @@ services components for the openssh package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559334025
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571077050
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -166,10 +155,8 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1559334025
+export SOURCE_DATE_EPOCH=1571077050
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/openssh
-cp LICENCE %{buildroot}/usr/share/package-licenses/openssh/LICENCE
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/sshd-keygen.service
@@ -178,6 +165,10 @@ install -m 0644 %{SOURCE4} %{buildroot}/usr/lib/systemd/system/sshd.socket
 install -m 0644 %{SOURCE5} %{buildroot}/usr/lib/systemd/system/sshd@.service
 mkdir -p %{buildroot}/usr/lib/tmpfiles.d
 install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/tmpfiles.d/openssh.conf
+## Remove excluded files
+rm -f %{buildroot}/etc/systemd/system/multi-user.target.wants/sshd.service
+rm -f %{buildroot}/etc/ssh/ssh_config
+rm -f %{buildroot}/etc/ssh/sshd_config
 ## install_append content
 mkdir -p %{buildroot}%{_datadir}/defaults/ssh/
 mv %{buildroot}%{_sysconfdir}/ssh/moduli %{buildroot}%{_datadir}/defaults/ssh/
@@ -201,7 +192,6 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 
 %files bin
 %defattr(-,root,root,-)
-%exclude /usr/bin/sshd
 /usr/bin/scp
 /usr/bin/sftp
 /usr/bin/ssh
@@ -234,13 +224,8 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 
 %files libexec
 %defattr(-,root,root,-)
-%exclude /usr/libexec/sftp-server
 /usr/libexec/ssh-keysign
 /usr/libexec/ssh-pkcs11-helper
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/openssh/LICENCE
 
 %files man
 %defattr(0644,root,root,0755)
@@ -263,7 +248,3 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 %files services
 %defattr(-,root,root,-)
 %exclude /usr/lib/systemd/system/sockets.target.wants/sshd.socket
-%exclude /usr/lib/systemd/system/sshd-keygen.service
-%exclude /usr/lib/systemd/system/sshd.service
-%exclude /usr/lib/systemd/system/sshd.socket
-%exclude /usr/lib/systemd/system/sshd@.service
