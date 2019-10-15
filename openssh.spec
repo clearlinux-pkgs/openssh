@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 8.1p1
-Release  : 75
+Release  : 76
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
 Source1  : openssh.tmpfiles
