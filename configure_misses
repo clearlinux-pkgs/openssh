@@ -138,6 +138,7 @@ Configure miss: strtonum
 Configure miss: swap32
 Configure miss: timingsafe_bcmp
 Configure miss: user_from_uid
+Configure miss: whether memmem is declared
 Configure miss: getutxuser
 Configure miss: setutxdb
 Configure miss: getlastlogxbyname
