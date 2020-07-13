@@ -1,10 +1,15 @@
 # This file contains recursive sources that require this package
+CGNS
 R-Rmpi
 R-doMPI
 autossh
 fftw
+gmsh
 gnome-keyring
 gvfs
+hdf5
+hypre
 libvirt
+netcdf
 otp
 seahorse

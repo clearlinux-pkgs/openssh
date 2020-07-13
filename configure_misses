@@ -2,6 +2,7 @@ Configure miss: kill
 Configure miss: ent
 Configure miss: mandoc
 Configure miss: pkgmk
+Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
 Configure miss: if gcc supports compile flag -Qunused-arguments
@@ -46,6 +47,9 @@ Configure miss: readpassphrase.h
 Configure miss: sha2.h usability
 Configure miss: sha2.h presence
 Configure miss: sha2.h
+Configure miss: sys/byteorder.h usability
+Configure miss: sys/byteorder.h presence
+Configure miss: sys/byteorder.h
 Configure miss: sys/bsdtty.h usability
 Configure miss: sys/bsdtty.h presence
 Configure miss: sys/bsdtty.h
@@ -139,6 +143,7 @@ Configure miss: swap32
 Configure miss: timingsafe_bcmp
 Configure miss: user_from_uid
 Configure miss: whether memmem is declared
+Configure miss: whether getpeereid is declared
 Configure miss: getutxuser
 Configure miss: setutxdb
 Configure miss: getlastlogxbyname
