@@ -1,5 +1,4 @@
 Configure miss: kill
-Configure miss: ent
 Configure miss: mandoc
 Configure miss: pkgmk
 Configure miss: whether LONG_LONG_MAX is declared
@@ -162,6 +161,7 @@ Configure miss: whether pam_strerror takes only one argument
 Configure miss: syslen field in utmpx.h
 Configure miss: ut_time field in utmp.h
 Configure miss: ut_time field in utmpx.h
+Configure miss: ut_ss field in utmpx.h
 Configure miss: struct passwd.pw_class
 Configure miss: struct passwd.pw_change
 Configure miss: struct passwd.pw_expire
