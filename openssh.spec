@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 8.4p1
-Release  : 79
+Release  : 80
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -36,6 +36,7 @@ Patch4: 0004-Default-default-secure-ciphers.patch
 Patch5: 0005-Always-use-PAM-by-default.patch
 Patch6: 0006-Set-default-server-keep-alive.patch
 Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
+Patch8: 0008-Fix-EOF-command-not-found-error-in-ssh-copy-id.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -151,13 +152,14 @@ cd %{_builddir}/openssh-8.4p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602219484
+export SOURCE_DATE_EPOCH=1603839088
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -167,7 +169,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1602219484
+export SOURCE_DATE_EPOCH=1603839088
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp %{_builddir}/openssh-8.4p1/LICENCE %{buildroot}/usr/share/package-licenses/openssh/a2e02723061a0666c2a6bc520a27380e8b6130c0
