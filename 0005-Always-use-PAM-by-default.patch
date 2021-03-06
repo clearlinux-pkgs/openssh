@@ -1,17 +1,17 @@
-From ef3eaad3d8d1bf69cdafa3912262d0fd9bbe787c Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Auke Kok <auke-jan.h.kok@intel.com>
 Date: Wed, 7 Nov 2018 14:43:20 -0800
-Subject: [PATCH 5/7] Always use PAM by default.
+Subject: [PATCH] Always use PAM by default.
 
 ---
  servconf.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/servconf.c b/servconf.c
-index afbe67e..ad0bf52 100644
+index e46c719..e1e69f5 100644
 --- a/servconf.c
 +++ b/servconf.c
-@@ -262,7 +262,7 @@ fill_default_server_options(ServerOptions *options)
+@@ -278,7 +278,7 @@ fill_default_server_options(ServerOptions *options)
  
  	/* Portable-specific options */
  	if (options->use_pam == -1)
@@ -20,6 +20,3 @@ index afbe67e..ad0bf52 100644
  
  	/* Standard Options */
  	if (options->num_host_key_files == 0) {
--- 
-2.19.1
-

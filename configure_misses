@@ -96,6 +96,7 @@ Configure miss: library containing fmt_scaled
 Configure miss: library containing scan_scaled
 Configure miss: fmt_scaled
 Configure miss: scan_scaled
+Configure miss: library containing SHA256Update
 Configure miss: gl_matchc field in glob_t
 Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
 Configure miss: whether VIS_ALL is declared
@@ -115,10 +116,12 @@ Configure miss: bindresvport_sa
 Configure miss: blf_enc
 Configure miss: cap_rights_limit
 Configure miss: closefrom
+Configure miss: explicit_memset
 Configure miss: freezero
 Configure miss: _getpty
 Configure miss: group_from_gid
 Configure miss: login_getcapbool
+Configure miss: login_getpwclass
 Configure miss: md5_crypt
 Configure miss: memset_s
 Configure miss: ngetaddrinfo
@@ -151,6 +154,7 @@ Configure miss: EVP_MD_CTX_init
 Configure miss: HMAC_CTX_init
 Configure miss: OpenSSL_add_all_algorithms
 Configure miss: EVP_CIPHER_CTX_get_iv
+Configure miss: EVP_CIPHER_CTX_get_updated_iv
 Configure miss: EVP_CIPHER_CTX_set_iv
 Configure miss: whether OpenSSL has crippled AES support
 Configure miss: arc4random

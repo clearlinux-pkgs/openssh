@@ -1,1 +1,7 @@
- --with-ssl-engine --with-pam  --sysconfdir=/etc/ssh --with-xauth=/usr/bin/xauth --without-ssh1 --disable-strip --disable-lastlog
+--with-ssl-engine
+--with-pam
+--sysconfdir=/etc/ssh
+--with-xauth=/usr/bin/xauth
+--without-ssh1
+--disable-strip
+--disable-lastlog
