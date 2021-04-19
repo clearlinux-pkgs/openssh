@@ -8,7 +8,7 @@ Subject: [PATCH] Set default server keep alive
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/readconf.c b/readconf.c
-index 724974b..9225385 100644
+index 0f27652..f4cec35 100644
 --- a/readconf.c
 +++ b/readconf.c
 @@ -2423,7 +2423,7 @@ fill_default_options(Options * options)

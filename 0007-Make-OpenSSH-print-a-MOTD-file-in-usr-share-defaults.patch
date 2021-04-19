@@ -8,7 +8,7 @@ Subject: [PATCH] Make OpenSSH print a MOTD file in /usr/share/defaults too
  1 file changed, 5 insertions(+)
 
 diff --git a/session.c b/session.c
-index 4b155f9..daf4a67 100644
+index c02f7d2..7c3656f 100644
 --- a/session.c
 +++ b/session.c
 @@ -798,8 +798,13 @@ do_motd(void)

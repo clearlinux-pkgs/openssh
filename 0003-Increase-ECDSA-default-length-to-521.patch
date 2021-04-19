@@ -9,7 +9,7 @@ note the 521 is not a typo for 512; it really is 521
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/ssh-keygen.c b/ssh-keygen.c
-index cfb5f11..d2886c5 100644
+index 027c6db..da617ec 100644
 --- a/ssh-keygen.c
 +++ b/ssh-keygen.c
 @@ -86,7 +86,7 @@
