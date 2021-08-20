@@ -17,7 +17,9 @@ Configure miss: SHA512Update
 Configure miss: __b64_ntop
 Configure miss: __b64_pton
 Configure miss: __ss_family field in struct sockaddr_storage
+Configure miss: _getlong
 Configure miss: _getpty
+Configure miss: _getshort
 Configure miss: arc4random
 Configure miss: arc4random_stir
 Configure miss: arc4random_uniform
@@ -36,7 +38,6 @@ Configure miss: bstring.h
 Configure miss: bstring.h presence
 Configure miss: bstring.h usability
 Configure miss: cap_rights_limit
-Configure miss: closefrom
 Configure miss: crypto/sha2.h
 Configure miss: crypto/sha2.h presence
 Configure miss: crypto/sha2.h usability
@@ -59,15 +60,14 @@ Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
 Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
-Configure miss: if res_query will link
+Configure miss: if libc defines sys_errlist
+Configure miss: if libc defines sys_nerr
 Configure miss: if your system defines LASTLOG_FILE
 Configure miss: if your system defines WTMPX_FILE
 Configure miss: kill
 Configure miss: library containing SHA256Update
-Configure miss: library containing dn_expand
 Configure miss: library containing fmt_scaled
 Configure miss: library containing getrrsetbyname
-Configure miss: library containing res_query
 Configure miss: library containing scan_scaled
 Configure miss: login.h
 Configure miss: login.h presence
@@ -107,6 +107,9 @@ Configure miss: readpassphrase.h
 Configure miss: readpassphrase.h presence
 Configure miss: readpassphrase.h usability
 Configure miss: recallocarray
+Configure miss: rpc/types.h
+Configure miss: rpc/types.h presence
+Configure miss: rpc/types.h usability
 Configure miss: scan_scaled
 Configure miss: setdtablesize
 Configure miss: setgroupent
@@ -117,6 +120,7 @@ Configure miss: setutxdb
 Configure miss: sha2.h
 Configure miss: sha2.h presence
 Configure miss: sha2.h usability
+Configure miss: sighandler_t
 Configure miss: sigvec
 Configure miss: strmode
 Configure miss: strnvis
@@ -151,6 +155,7 @@ Configure miss: sys/stropts.h usability
 Configure miss: sys/strtio.h
 Configure miss: sys/strtio.h presence
 Configure miss: sys/strtio.h usability
+Configure miss: sys/sysctl.h
 Configure miss: sys/timers.h
 Configure miss: sys/timers.h presence
 Configure miss: sys/timers.h usability
