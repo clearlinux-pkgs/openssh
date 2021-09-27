@@ -5,16 +5,16 @@
 # Source0 file verified with key 0x2A3F414E736060BA (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 8.7p1
-Release  : 85
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz
+Version  : 8.8p1
+Release  : 86
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source6  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz.asc
+Source6  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause Beerware ISC MIT Public-Domain
@@ -142,8 +142,8 @@ services components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-8.7p1
-cd %{_builddir}/openssh-8.7p1
+%setup -q -n openssh-8.8p1
+cd %{_builddir}/openssh-8.8p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -157,7 +157,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1629469852
+export SOURCE_DATE_EPOCH=1632760193
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -173,10 +173,10 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-re
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1629469852
+export SOURCE_DATE_EPOCH=1632760193
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
-cp %{_builddir}/openssh-8.7p1/LICENCE %{buildroot}/usr/share/package-licenses/openssh/e4ae4c25690989b93df8b060ae2448349e0a961a
+cp %{_builddir}/openssh-8.8p1/LICENCE %{buildroot}/usr/share/package-licenses/openssh/e4ae4c25690989b93df8b060ae2448349e0a961a
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/sshd-keygen.service

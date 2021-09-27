@@ -101,6 +101,7 @@ Configure miss: pam/pam_appl.h usability
 Configure miss: pkgmk
 Configure miss: pledge
 Configure miss: possibly buggy zlib
+Configure miss: procctl
 Configure miss: pstat
 Configure miss: readpassphrase
 Configure miss: readpassphrase.h
@@ -143,6 +144,9 @@ Configure miss: sys/label.h usability
 Configure miss: sys/ndir.h
 Configure miss: sys/ndir.h presence
 Configure miss: sys/ndir.h usability
+Configure miss: sys/procctl.h
+Configure miss: sys/procctl.h presence
+Configure miss: sys/procctl.h usability
 Configure miss: sys/pstat.h presence
 Configure miss: sys/pstat.h usability
 Configure miss: sys/ptms.h
