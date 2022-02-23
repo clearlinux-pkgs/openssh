@@ -57,11 +57,14 @@ Configure miss: iaf.h
 Configure miss: iaf.h presence
 Configure miss: iaf.h usability
 Configure miss: if gcc supports compile flag -Qunused-arguments
+Configure miss: if gcc supports compile flag -Wbitwise-instead-of-logical
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: if gcc supports compile flag -ftrivial-auto-var-init=zero
 Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
 Configure miss: if libc defines sys_errlist
 Configure miss: if libc defines sys_nerr
+Configure miss: if select and/or poll works with descriptor rlimit
 Configure miss: if your system defines LASTLOG_FILE
 Configure miss: if your system defines WTMPX_FILE
 Configure miss: kill
@@ -79,7 +82,6 @@ Configure miss: maillock.h
 Configure miss: maillock.h presence
 Configure miss: maillock.h usability
 Configure miss: mandoc
-Configure miss: md5_crypt
 Configure miss: memset_s
 Configure miss: msg_accrights field in struct msghdr
 Configure miss: ndir.h

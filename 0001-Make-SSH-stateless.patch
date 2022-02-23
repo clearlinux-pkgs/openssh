@@ -11,7 +11,7 @@ diff --git a/servconf.c b/servconf.c
 index 4d1910f..aeab8da 100644
 --- a/servconf.c
 +++ b/servconf.c
-@@ -419,10 +419,6 @@ fill_default_server_options(ServerOptions *options)
+@@ -416,10 +416,6 @@ fill_default_server_options(ServerOptions *options)
  		    &options->authorized_keys_files,
  		    &options->num_authkeys_files,
  		    _PATH_SSH_USER_PERMITTED_KEYS);
@@ -22,7 +22,7 @@ index 4d1910f..aeab8da 100644
  	}
  	if (options->permit_tun == -1)
  		options->permit_tun = SSH_TUNMODE_NO;
-@@ -2448,6 +2444,9 @@ load_server_config(const char *filename, struct sshbuf *conf)
+@@ -2486,6 +2482,9 @@ load_server_config(const char *filename, struct sshbuf *conf)
  
  	debug2_f("filename %s", filename);
  	if ((f = fopen(filename, "r")) == NULL) {

@@ -11,7 +11,7 @@ diff --git a/session.c b/session.c
 index c02f7d2..7c3656f 100644
 --- a/session.c
 +++ b/session.c
-@@ -798,8 +798,13 @@ do_motd(void)
+@@ -797,8 +797,13 @@ do_motd(void)
  #ifdef HAVE_LOGIN_CAP
  		f = fopen(login_getcapstr(lc, "welcome", "/etc/motd",
  		    "/etc/motd"), "r");

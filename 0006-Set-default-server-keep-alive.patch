@@ -11,7 +11,7 @@ diff --git a/readconf.c b/readconf.c
 index 0f27652..f4cec35 100644
 --- a/readconf.c
 +++ b/readconf.c
-@@ -2423,7 +2423,7 @@ fill_default_options(Options * options)
+@@ -2584,7 +2584,7 @@ fill_default_options(Options * options)
  	if (options->verify_host_key_dns == -1)
  		options->verify_host_key_dns = 0;
  	if (options->server_alive_interval == -1)

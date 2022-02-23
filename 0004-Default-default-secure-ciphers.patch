@@ -29,7 +29,7 @@ diff --git a/servconf.c b/servconf.c
 index aeab8da..82df98a 100644
 --- a/servconf.c
 +++ b/servconf.c
-@@ -426,6 +426,8 @@ fill_default_server_options(ServerOptions *options)
+@@ -423,6 +423,8 @@ fill_default_server_options(ServerOptions *options)
  		options->ip_qos_interactive = IPTOS_DSCP_AF21;
  	if (options->ip_qos_bulk == -1)
  		options->ip_qos_bulk = IPTOS_DSCP_CS1;
