@@ -1,0 +1,11 @@
+--- openssh-9.0p1/scp.c~	2022-04-06 00:47:48.000000000 +0000
++++ openssh-9.0p1/scp.c	2022-09-12 22:45:48.543387832 +0000
+@@ -449,7 +449,7 @@
+ 	const char *errstr;
+ 	extern char *optarg;
+ 	extern int optind;
+-	enum scp_mode_e mode = MODE_SFTP;
++	enum scp_mode_e mode = MODE_SCP;
+ 	char *sftp_direct = NULL;
+ 
+ 	/* Ensure that fds 0, 1 and 2 are open or directed to /dev/null */

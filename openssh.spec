@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 9.0p1
-Release  : 89
+Release  : 90
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -22,7 +22,6 @@ Requires: openssh-bin = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 Requires: openssh-man = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
@@ -36,6 +35,7 @@ Patch4: 0004-Default-default-secure-ciphers.patch
 Patch5: 0005-Always-use-PAM-by-default.patch
 Patch6: 0006-Set-default-server-keep-alive.patch
 Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
+Patch8: default-revert-scp.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -65,7 +65,6 @@ Group: Binaries
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 Requires: openssh-services = %{version}-%{release}
 
 %description bin
@@ -111,18 +110,9 @@ extras-server components for the openssh package.
 Summary: libexec components for the openssh package.
 Group: Default
 Requires: openssh-config = %{version}-%{release}
-Requires: openssh-license = %{version}-%{release}
 
 %description libexec
 libexec components for the openssh package.
-
-
-%package license
-Summary: license components for the openssh package.
-Group: Default
-
-%description license
-license components for the openssh package.
 
 
 %package man
@@ -151,13 +141,14 @@ cd %{_builddir}/openssh-9.0p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1649432398
+export SOURCE_DATE_EPOCH=1663022857
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -173,10 +164,8 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-re
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1649432398
+export SOURCE_DATE_EPOCH=1663022857
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/openssh
-cp %{_builddir}/openssh-9.0p1/LICENCE %{buildroot}/usr/share/package-licenses/openssh/fc6deda3f77a10873cdc1d57604d54f7c7bc711d
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/sshd-keygen.service
@@ -247,10 +236,6 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 /usr/libexec/ssh-keysign
 /usr/libexec/ssh-pkcs11-helper
 /usr/libexec/ssh-sk-helper
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/openssh/fc6deda3f77a10873cdc1d57604d54f7c7bc711d
 
 %files man
 %defattr(0644,root,root,0755)
