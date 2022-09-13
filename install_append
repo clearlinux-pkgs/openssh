@@ -9,3 +9,5 @@ mkdir -p %{buildroot}/usr/share/man/man1/
 cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
 mkdir -p %{buildroot}/usr/share/doc/openssh/
 cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
+mkdir -p %{buildroot}/usr/share/defaults/openssh/
+cp sshd_config ssh_config %{buildroot}/usr/share/defaults/openssh/

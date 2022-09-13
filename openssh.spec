@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 9.0p1
-Release  : 90
+Release  : 91
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.0p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -36,6 +36,7 @@ Patch5: 0005-Always-use-PAM-by-default.patch
 Patch6: 0006-Set-default-server-keep-alive.patch
 Patch7: 0007-Make-OpenSSH-print-a-MOTD-file-in-usr-share-defaults.patch
 Patch8: default-revert-scp.patch
+Patch9: statelessconfig.patch
 
 %description
 Ssh (Secure Shell) is a program for logging into a remote machine and for
@@ -142,13 +143,14 @@ cd %{_builddir}/openssh-9.0p1
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663022857
+export SOURCE_DATE_EPOCH=1663078523
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -164,7 +166,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-re
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1663022857
+export SOURCE_DATE_EPOCH=1663078523
 rm -rf %{buildroot}
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
@@ -190,6 +192,8 @@ mkdir -p %{buildroot}/usr/share/man/man1/
 cp contrib/ssh-copy-id.1 %{buildroot}/usr/share/man/man1/
 mkdir -p %{buildroot}/usr/share/doc/openssh/
 cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
+mkdir -p %{buildroot}/usr/share/defaults/openssh/
+cp sshd_config ssh_config %{buildroot}/usr/share/defaults/openssh/
 ## install_append end
 
 %files
@@ -216,6 +220,8 @@ cp sshd_config ssh_config %{buildroot}/usr/share/doc/openssh/
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/defaults/openssh/ssh_config
+/usr/share/defaults/openssh/sshd_config
 /usr/share/defaults/ssh/moduli
 
 %files doc
