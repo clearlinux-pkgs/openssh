@@ -4,7 +4,7 @@
   * should be world-readable.
   */
  #define _PATH_SERVER_CONFIG_FILE	SSHDIR "/sshd_config"
-+#define _PATH_SERVER_CONFIG_FILE_STATELESS "/usr/share/defaults/openssh/sshd_config"
++#define _PATH_SERVER_CONFIG_FILE_STATELESS "/usr/share/defaults/ssh/sshd_config"
  #define _PATH_HOST_CONFIG_FILE		SSHDIR "/ssh_config"
  #define _PATH_HOST_DSA_KEY_FILE		SSHDIR "/ssh_host_dsa_key"
  #define _PATH_HOST_ECDSA_KEY_FILE	SSHDIR "/ssh_host_ecdsa_key"
