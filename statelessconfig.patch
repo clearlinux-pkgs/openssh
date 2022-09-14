@@ -17,7 +17,7 @@
 -	} else if (strcasecmp(config_file_name, "none") != 0)
 -		load_server_config(config_file_name, cfg);
 +	} else if (strcasecmp(config_file_name, "none") != 0) {
-+		if (access(config_file_name, R_OK) == 0 && strcmp(config_file_name, _PATH_SERVER_CONFIG_FILE) == 0) {
++		if (access(config_file_name, R_OK) != 0 && strcmp(config_file_name, _PATH_SERVER_CONFIG_FILE) == 0) {
 +			load_server_config(_PATH_SERVER_CONFIG_FILE_STATELESS, cfg);
 +		} else {
 +			load_server_config(config_file_name, cfg);
