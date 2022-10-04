@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 9.1p1
-Release  : 94
+Release  : 95
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -22,6 +22,7 @@ Requires: openssh-bin = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
 Requires: openssh-man = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
@@ -66,6 +67,7 @@ Group: Binaries
 Requires: openssh-data = %{version}-%{release}
 Requires: openssh-libexec = %{version}-%{release}
 Requires: openssh-config = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
 Requires: openssh-services = %{version}-%{release}
 
 %description bin
@@ -111,9 +113,18 @@ extras-server components for the openssh package.
 Summary: libexec components for the openssh package.
 Group: Default
 Requires: openssh-config = %{version}-%{release}
+Requires: openssh-license = %{version}-%{release}
 
 %description libexec
 libexec components for the openssh package.
+
+
+%package license
+Summary: license components for the openssh package.
+Group: Default
+
+%description license
+license components for the openssh package.
 
 
 %package man
@@ -150,7 +161,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664899254
+export SOURCE_DATE_EPOCH=1664918232
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -166,8 +177,10 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1664899254
+export SOURCE_DATE_EPOCH=1664918232
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/openssh
+cp %{_builddir}/openssh-%{version}/LICENCE %{buildroot}/usr/share/package-licenses/openssh/0121ac714539ad1d1acc30625cbdacc74639241b || :
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/sshd-keygen.service
@@ -242,6 +255,10 @@ cp sshd_config ssh_config %{buildroot}/usr/share/defaults/ssh/
 /usr/libexec/ssh-keysign
 /usr/libexec/ssh-pkcs11-helper
 /usr/libexec/ssh-sk-helper
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/openssh/0121ac714539ad1d1acc30625cbdacc74639241b
 
 %files man
 %defattr(0644,root,root,0755)
