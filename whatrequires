@@ -3,7 +3,9 @@ CGNS
 R-Rmpi
 R-doMPI
 autossh
+compat-gcr-soname1
 fftw
+gcr
 gmsh
 gnome-keyring
 gvfs
@@ -12,3 +14,4 @@ libvirt
 netcdf
 otp
 seahorse
+sssd
