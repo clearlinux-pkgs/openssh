@@ -6,7 +6,7 @@
 #
 Name     : openssh
 Version  : 9.1p1
-Release  : 95
+Release  : 96
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -27,6 +27,8 @@ Requires: openssh-man = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : groff
 BuildRequires : libcap-dev
+BuildRequires : libfido2
+BuildRequires : libfido2-dev
 BuildRequires : openssl-dev
 BuildRequires : pkgconfig(zlib)
 Patch1: 0001-Make-SSH-stateless.patch
@@ -161,7 +163,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664918232
+export SOURCE_DATE_EPOCH=1671551805
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -177,7 +179,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1664918232
+export SOURCE_DATE_EPOCH=1671551805
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp %{_builddir}/openssh-%{version}/LICENCE %{buildroot}/usr/share/package-licenses/openssh/0121ac714539ad1d1acc30625cbdacc74639241b || :

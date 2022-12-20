@@ -4,3 +4,5 @@ Linux-PAM-dev
 groff
 libcap-dev
 openssl-dev
+libfido2
+libfido2-dev
