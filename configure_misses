@@ -33,9 +33,6 @@ Configure miss: caph_cache_tzdata
 Configure miss: capsicum_helpers.h
 Configure miss: crypto/sha2.h
 Configure miss: explicit_memset
-Configure miss: fido.h
-Configure miss: fido/credman.h
-Configure miss: fido_init in -lfido2
 Configure miss: fmt_scaled
 Configure miss: freezero
 Configure miss: gcc options needed to detect all undeclared functions
@@ -47,7 +44,6 @@ Configure miss: group_from_gid
 Configure miss: ia.h
 Configure miss: ia_openinfo in -liaf
 Configure miss: iaf.h
-Configure miss: if /usr/bin/x86_64-generic-linux-gnu-pkg-config knows about libfido2
 Configure miss: if gcc supports compile flag -Qunused-arguments
 Configure miss: if gcc supports compile flag -Wbitwise-instead-of-logical
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
@@ -57,7 +53,6 @@ Configure miss: if libc defines sys_errlist
 Configure miss: if libc defines sys_nerr
 Configure miss: if select and/or poll works with descriptor rlimit
 Configure miss: if your system defines LASTLOG_FILE
-Configure miss: if your system defines WTMPX_FILE
 Configure miss: kill
 Configure miss: library containing SHA256Update
 Configure miss: library containing fmt_scaled
@@ -96,7 +91,6 @@ Configure miss: setpassent
 Configure miss: setpcred
 Configure miss: setutxdb
 Configure miss: sha2.h
-Configure miss: sighandler_t
 Configure miss: sigvec
 Configure miss: strmode
 Configure miss: strnvis
@@ -137,5 +131,4 @@ Configure miss: whether _getlong is declared
 Configure miss: whether _getshort is declared
 Configure miss: whether getopt has optreset support
 Configure miss: whether getpeereid is declared
-Configure miss: whether memmem is declared
 Configure miss: whether pam_strerror takes only one argument
