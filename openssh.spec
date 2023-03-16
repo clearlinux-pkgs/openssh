@@ -5,16 +5,16 @@
 # Source0 file verified with key 0x2A3F414E736060BA (djm@mindrot.org)
 #
 Name     : openssh
-Version  : 9.2p1
-Release  : 102
-URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.2p1.tar.gz
-Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.2p1.tar.gz
+Version  : 9.3p1
+Release  : 103
+URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz
+Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz
 Source1  : openssh.tmpfiles
 Source2  : sshd-keygen.service
 Source3  : sshd.service
 Source4  : sshd.socket
 Source5  : sshd@.service
-Source6  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.2p1.tar.gz.asc
+Source6  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz.asc
 Summary  : The OpenSSH implementation of SSH protocol version 2.
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause Beerware ISC MIT Public-Domain
@@ -149,8 +149,8 @@ services components for the openssh package.
 
 
 %prep
-%setup -q -n openssh-9.2p1
-cd %{_builddir}/openssh-9.2p1
+%setup -q -n openssh-9.3p1
+cd %{_builddir}/openssh-9.3p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -166,7 +166,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675361816
+export SOURCE_DATE_EPOCH=1678978164
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -182,7 +182,7 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1675361816
+export SOURCE_DATE_EPOCH=1678978164
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp %{_builddir}/openssh-%{version}/LICENCE %{buildroot}/usr/share/package-licenses/openssh/0121ac714539ad1d1acc30625cbdacc74639241b || :
