@@ -1,134 +1,268 @@
 Configure miss: "/dev/ptc"
+Configure miss: "/dev/ptc"
+Configure miss: "/etc/default/login"
 Configure miss: "/etc/default/login"
 Configure miss: Blowfish_expand0state
+Configure miss: Blowfish_expand0state
+Configure miss: Blowfish_expandstate
 Configure miss: Blowfish_expandstate
 Configure miss: Blowfish_initstate
+Configure miss: Blowfish_initstate
+Configure miss: Blowfish_stream2word
 Configure miss: Blowfish_stream2word
 Configure miss: EVP_CIPHER_CTX_get_iv
+Configure miss: EVP_CIPHER_CTX_get_iv
+Configure miss: EVP_CIPHER_CTX_set_iv
 Configure miss: EVP_CIPHER_CTX_set_iv
 Configure miss: EVP_MD_CTX_cleanup
+Configure miss: EVP_MD_CTX_cleanup
+Configure miss: EVP_MD_CTX_init
 Configure miss: EVP_MD_CTX_init
 Configure miss: HMAC_CTX_init
+Configure miss: HMAC_CTX_init
+Configure miss: OpenSSL_add_all_algorithms
 Configure miss: OpenSSL_add_all_algorithms
 Configure miss: SHA256Update
+Configure miss: SHA256Update
+Configure miss: SHA384Update
 Configure miss: SHA384Update
 Configure miss: SHA512Update
+Configure miss: SHA512Update
+Configure miss: __b64_ntop
 Configure miss: __b64_ntop
 Configure miss: __b64_pton
+Configure miss: __b64_pton
+Configure miss: __ss_family field in struct sockaddr_storage
 Configure miss: __ss_family field in struct sockaddr_storage
 Configure miss: _getlong
+Configure miss: _getlong
+Configure miss: _getpty
 Configure miss: _getpty
 Configure miss: _getshort
+Configure miss: _getshort
+Configure miss: arc4random_stir
 Configure miss: arc4random_stir
 Configure miss: b64_ntop
+Configure miss: b64_ntop
+Configure miss: b64_pton
 Configure miss: b64_pton
 Configure miss: bcrypt_pbkdf
+Configure miss: bcrypt_pbkdf
+Configure miss: bindresvport_sa
 Configure miss: bindresvport_sa
 Configure miss: blf.h
+Configure miss: blf.h
+Configure miss: blf_enc
 Configure miss: blf_enc
 Configure miss: bsd/libutil.h
+Configure miss: bsd/libutil.h
+Configure miss: bstring.h
 Configure miss: bstring.h
 Configure miss: cap_rights_limit
+Configure miss: cap_rights_limit
+Configure miss: caph_cache_tzdata
 Configure miss: caph_cache_tzdata
 Configure miss: capsicum_helpers.h
+Configure miss: capsicum_helpers.h
+Configure miss: crypto/sha2.h
 Configure miss: crypto/sha2.h
 Configure miss: explicit_memset
+Configure miss: explicit_memset
+Configure miss: fmt_scaled
 Configure miss: fmt_scaled
 Configure miss: freezero
+Configure miss: freezero
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: getlastlogxbyname
+Configure miss: getlastlogxbyname
+Configure miss: getutxuser
 Configure miss: getutxuser
 Configure miss: gl_matchc field in glob_t
+Configure miss: gl_matchc field in glob_t
+Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
 Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
 Configure miss: group_from_gid
+Configure miss: group_from_gid
+Configure miss: ia.h
 Configure miss: ia.h
 Configure miss: ia_openinfo in -liaf
+Configure miss: ia_openinfo in -liaf
+Configure miss: iaf.h
 Configure miss: iaf.h
 Configure miss: if gcc supports compile flag -Qunused-arguments
+Configure miss: if gcc supports compile flag -Qunused-arguments
+Configure miss: if gcc supports compile flag -Wbitwise-instead-of-logical
 Configure miss: if gcc supports compile flag -Wbitwise-instead-of-logical
 Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: if gcc supports compile flag -Wunknown-warning-option
+Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: if gcc supports compile flag -mretpoline
 Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
+Configure miss: if gcc supports link flag -Wl,-z,retpolineplt
+Configure miss: if libc defines sys_errlist
 Configure miss: if libc defines sys_errlist
 Configure miss: if libc defines sys_nerr
+Configure miss: if libc defines sys_nerr
+Configure miss: if select and/or poll works with descriptor rlimit
 Configure miss: if select and/or poll works with descriptor rlimit
 Configure miss: if your system defines LASTLOG_FILE
+Configure miss: if your system defines LASTLOG_FILE
+Configure miss: kill
 Configure miss: kill
 Configure miss: library containing SHA256Update
+Configure miss: library containing SHA256Update
+Configure miss: library containing fmt_scaled
 Configure miss: library containing fmt_scaled
 Configure miss: library containing getrrsetbyname
+Configure miss: library containing getrrsetbyname
+Configure miss: library containing scan_scaled
 Configure miss: library containing scan_scaled
 Configure miss: login.h
+Configure miss: login.h
+Configure miss: login_cap.h
 Configure miss: login_cap.h
 Configure miss: login_getcapbool
+Configure miss: login_getcapbool
+Configure miss: login_getpwclass
 Configure miss: login_getpwclass
 Configure miss: maillock.h
+Configure miss: maillock.h
+Configure miss: mandoc
 Configure miss: mandoc
 Configure miss: memset_s
+Configure miss: memset_s
+Configure miss: msg_accrights field in struct msghdr
 Configure miss: msg_accrights field in struct msghdr
 Configure miss: ndir.h
+Configure miss: ndir.h
+Configure miss: net/if_tun.h
 Configure miss: net/if_tun.h
 Configure miss: netgroup.h
+Configure miss: netgroup.h
+Configure miss: ngetaddrinfo
 Configure miss: ngetaddrinfo
 Configure miss: nsleep
+Configure miss: nsleep
+Configure miss: ogetaddrinfo
 Configure miss: ogetaddrinfo
 Configure miss: openlog_r
+Configure miss: openlog_r
+Configure miss: pam/pam_appl.h
 Configure miss: pam/pam_appl.h
 Configure miss: pkgmk
+Configure miss: pkgmk
+Configure miss: pledge
 Configure miss: pledge
 Configure miss: possibly buggy zlib
+Configure miss: possibly buggy zlib
+Configure miss: procctl
 Configure miss: procctl
 Configure miss: pstat
+Configure miss: pstat
+Configure miss: readpassphrase
 Configure miss: readpassphrase
 Configure miss: readpassphrase.h
+Configure miss: readpassphrase.h
+Configure miss: recallocarray
 Configure miss: recallocarray
 Configure miss: rpc/types.h
+Configure miss: rpc/types.h
+Configure miss: scan_scaled
 Configure miss: scan_scaled
 Configure miss: setdtablesize
+Configure miss: setdtablesize
+Configure miss: setgroupent
 Configure miss: setgroupent
 Configure miss: setlogin
+Configure miss: setlogin
+Configure miss: setpassent
 Configure miss: setpassent
 Configure miss: setpcred
+Configure miss: setpcred
+Configure miss: setutxdb
 Configure miss: setutxdb
 Configure miss: sha2.h
+Configure miss: sha2.h
+Configure miss: sigvec
 Configure miss: sigvec
 Configure miss: strmode
+Configure miss: strmode
+Configure miss: strnvis
 Configure miss: strnvis
 Configure miss: strtonum
+Configure miss: strtonum
+Configure miss: struct passwd.pw_change
 Configure miss: struct passwd.pw_change
 Configure miss: struct passwd.pw_class
+Configure miss: struct passwd.pw_class
+Configure miss: struct passwd.pw_expire
 Configure miss: struct passwd.pw_expire
 Configure miss: swap32
+Configure miss: swap32
+Configure miss: sys/audit.h
 Configure miss: sys/audit.h
 Configure miss: sys/bsdtty.h
+Configure miss: sys/bsdtty.h
+Configure miss: sys/byteorder.h
 Configure miss: sys/byteorder.h
 Configure miss: sys/capsicum.h
+Configure miss: sys/capsicum.h
+Configure miss: sys/label.h
 Configure miss: sys/label.h
 Configure miss: sys/ndir.h
+Configure miss: sys/ndir.h
+Configure miss: sys/procctl.h
 Configure miss: sys/procctl.h
 Configure miss: sys/ptms.h
+Configure miss: sys/ptms.h
+Configure miss: sys/stream.h
 Configure miss: sys/stream.h
 Configure miss: sys/stropts.h
+Configure miss: sys/stropts.h
+Configure miss: sys/strtio.h
 Configure miss: sys/strtio.h
 Configure miss: sys/sysctl.h
+Configure miss: sys/sysctl.h
+Configure miss: sys/timers.h
 Configure miss: sys/timers.h
 Configure miss: syslen field in utmpx.h
+Configure miss: syslen field in utmpx.h
+Configure miss: timingsafe_bcmp
 Configure miss: timingsafe_bcmp
 Configure miss: tmpdir.h
+Configure miss: tmpdir.h
+Configure miss: ucred.h
 Configure miss: ucred.h
 Configure miss: user_from_uid
+Configure miss: user_from_uid
+Configure miss: usersec.h
 Configure miss: usersec.h
 Configure miss: ut_ss field in utmpx.h
+Configure miss: ut_ss field in utmpx.h
+Configure miss: ut_time field in utmp.h
 Configure miss: ut_time field in utmp.h
 Configure miss: ut_time field in utmpx.h
+Configure miss: ut_time field in utmpx.h
+Configure miss: vis.h
 Configure miss: vis.h
 Configure miss: whether BROKEN_GETADDRINFO is declared
+Configure miss: whether BROKEN_GETADDRINFO is declared
+Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether OpenSSL has crippled AES support
+Configure miss: whether OpenSSL has crippled AES support
+Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: whether VIS_ALL is declared
+Configure miss: whether VIS_ALL is declared
+Configure miss: whether _getlong is declared
 Configure miss: whether _getlong is declared
 Configure miss: whether _getshort is declared
+Configure miss: whether _getshort is declared
+Configure miss: whether getopt has optreset support
 Configure miss: whether getopt has optreset support
 Configure miss: whether getpeereid is declared
+Configure miss: whether getpeereid is declared
+Configure miss: whether pam_strerror takes only one argument
 Configure miss: whether pam_strerror takes only one argument
