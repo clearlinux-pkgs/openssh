@@ -7,7 +7,7 @@
 #
 Name     : openssh
 Version  : 9.4p1
-Release  : 112
+Release  : 113
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.4p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.4p1.tar.gz
 Source1  : openssh.tmpfiles
@@ -28,6 +28,7 @@ Requires: openssh-man = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : buildreq-configure
 BuildRequires : groff
+BuildRequires : krb5-dev
 BuildRequires : libcap-dev
 BuildRequires : libfido2
 BuildRequires : libfido2-dev
@@ -172,7 +173,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691795342
+export SOURCE_DATE_EPOCH=1694821819
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -184,7 +185,8 @@ export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -f
 --with-xauth=/usr/bin/xauth \
 --without-ssh1 \
 --disable-strip \
---disable-lastlog
+--disable-lastlog \
+--with-kerberos5
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -200,11 +202,12 @@ export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
 --with-xauth=/usr/bin/xauth \
 --without-ssh1 \
 --disable-strip \
---disable-lastlog
+--disable-lastlog \
+--with-kerberos5
 make  %{?_smp_mflags}
 popd
 %install
-export SOURCE_DATE_EPOCH=1691795342
+export SOURCE_DATE_EPOCH=1694821819
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/openssh
 cp %{_builddir}/openssh-%{version}/LICENCE %{buildroot}/usr/share/package-licenses/openssh/0121ac714539ad1d1acc30625cbdacc74639241b || :

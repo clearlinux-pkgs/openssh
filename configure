@@ -5,3 +5,4 @@
 --without-ssh1
 --disable-strip
 --disable-lastlog
+--with-kerberos5
