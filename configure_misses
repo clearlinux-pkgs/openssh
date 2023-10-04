@@ -84,6 +84,10 @@ Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
 Configure miss: gl_statv and GLOB_KEEPSTAT extensions for glob
 Configure miss: group_from_gid
 Configure miss: group_from_gid
+Configure miss: gssapi_generic.h
+Configure miss: gssapi_generic.h
+Configure miss: gssapi_krb5.h
+Configure miss: gssapi_krb5.h
 Configure miss: ia.h
 Configure miss: ia.h
 Configure miss: ia_openinfo in -liaf
@@ -116,6 +120,8 @@ Configure miss: library containing fmt_scaled
 Configure miss: library containing fmt_scaled
 Configure miss: library containing getrrsetbyname
 Configure miss: library containing getrrsetbyname
+Configure miss: library containing k_hasafs
+Configure miss: library containing k_hasafs
 Configure miss: library containing scan_scaled
 Configure miss: library containing scan_scaled
 Configure miss: login.h
@@ -266,3 +272,5 @@ Configure miss: whether getpeereid is declared
 Configure miss: whether getpeereid is declared
 Configure miss: whether pam_strerror takes only one argument
 Configure miss: whether pam_strerror takes only one argument
+Configure miss: whether we are using Heimdal
+Configure miss: whether we are using Heimdal
