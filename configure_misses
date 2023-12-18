@@ -64,8 +64,18 @@ Configure miss: caph_cache_tzdata
 Configure miss: caph_cache_tzdata
 Configure miss: capsicum_helpers.h
 Configure miss: capsicum_helpers.h
+Configure miss: conch
+Configure miss: conch
 Configure miss: crypto/sha2.h
 Configure miss: crypto/sha2.h
+Configure miss: dbclient
+Configure miss: dbclient
+Configure miss: dropbear
+Configure miss: dropbear
+Configure miss: dropbearconvert
+Configure miss: dropbearconvert
+Configure miss: dropbearkey
+Configure miss: dropbearkey
 Configure miss: explicit_memset
 Configure miss: explicit_memset
 Configure miss: fmt_scaled
@@ -160,12 +170,16 @@ Configure miss: pkgmk
 Configure miss: pkgmk
 Configure miss: pledge
 Configure miss: pledge
+Configure miss: plink
+Configure miss: plink
 Configure miss: possibly buggy zlib
 Configure miss: possibly buggy zlib
 Configure miss: procctl
 Configure miss: procctl
 Configure miss: pstat
 Configure miss: pstat
+Configure miss: puttygen
+Configure miss: puttygen
 Configure miss: readpassphrase
 Configure miss: readpassphrase
 Configure miss: readpassphrase.h
@@ -256,6 +270,8 @@ Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether LONG_LONG_MAX is declared
+Configure miss: whether OpenSSL has ED25519 support
+Configure miss: whether OpenSSL has ED25519 support
 Configure miss: whether OpenSSL has crippled AES support
 Configure miss: whether OpenSSL has crippled AES support
 Configure miss: whether SYSTR_POLICY_KILL is declared
