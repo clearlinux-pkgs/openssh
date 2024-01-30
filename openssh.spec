@@ -9,7 +9,7 @@
 #
 Name     : openssh
 Version  : 9.6p1
-Release  : 117
+Release  : 118
 URL      : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.6p1.tar.gz
 Source0  : https://openbsd.cs.toronto.edu/pub/OpenBSD/OpenSSH/portable/openssh-9.6p1.tar.gz
 Source1  : openssh.tmpfiles
