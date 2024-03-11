@@ -272,8 +272,8 @@ Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether OpenSSL has ED25519 support
 Configure miss: whether OpenSSL has ED25519 support
-Configure miss: whether OpenSSL has crippled AES support
-Configure miss: whether OpenSSL has crippled AES support
+Configure miss: whether OpenSSL lacks support for AES 192/256
+Configure miss: whether OpenSSL lacks support for AES 192/256
 Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: whether VIS_ALL is declared
