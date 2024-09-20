@@ -42,6 +42,10 @@ Configure miss: _getshort
 Configure miss: _getshort
 Configure miss: arc4random_stir
 Configure miss: arc4random_stir
+Configure miss: auth_hostok
+Configure miss: auth_hostok
+Configure miss: auth_timeok
+Configure miss: auth_timeok
 Configure miss: b64_ntop
 Configure miss: b64_ntop
 Configure miss: b64_pton
@@ -270,8 +274,6 @@ Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether LONG_LONG_MAX is declared
-Configure miss: whether OpenSSL has ED25519 support
-Configure miss: whether OpenSSL has ED25519 support
 Configure miss: whether OpenSSL lacks support for AES 192/256
 Configure miss: whether OpenSSL lacks support for AES 192/256
 Configure miss: whether SYSTR_POLICY_KILL is declared
