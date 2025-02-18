@@ -222,8 +222,6 @@ Configure miss: struct passwd.pw_class
 Configure miss: struct passwd.pw_class
 Configure miss: struct passwd.pw_expire
 Configure miss: struct passwd.pw_expire
-Configure miss: swap32
-Configure miss: swap32
 Configure miss: sys/audit.h
 Configure miss: sys/audit.h
 Configure miss: sys/bsdtty.h
