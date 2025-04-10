@@ -272,10 +272,10 @@ Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether BROKEN_GETADDRINFO is declared
 Configure miss: whether LONG_LONG_MAX is declared
 Configure miss: whether LONG_LONG_MAX is declared
+Configure miss: whether OPENSSL_IS_AWSLC is declared
+Configure miss: whether OPENSSL_IS_AWSLC is declared
 Configure miss: whether OpenSSL lacks support for AES 192/256
 Configure miss: whether OpenSSL lacks support for AES 192/256
-Configure miss: whether SYSTR_POLICY_KILL is declared
-Configure miss: whether SYSTR_POLICY_KILL is declared
 Configure miss: whether VIS_ALL is declared
 Configure miss: whether VIS_ALL is declared
 Configure miss: whether _getlong is declared
@@ -288,5 +288,7 @@ Configure miss: whether getpeereid is declared
 Configure miss: whether getpeereid is declared
 Configure miss: whether pam_strerror takes only one argument
 Configure miss: whether pam_strerror takes only one argument
+Configure miss: whether to build standalone sk-libfido2
+Configure miss: whether to build standalone sk-libfido2
 Configure miss: whether we are using Heimdal
 Configure miss: whether we are using Heimdal
